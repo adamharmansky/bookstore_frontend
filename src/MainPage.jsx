@@ -9,7 +9,6 @@ export default function BookList() {
     var [subjectList, setSubjectList] = React.useState([]);
 
     React.useEffect(() => {
-        const url = new URL(window.location.href)
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
             console.log(data);
             setSubjectList(data.data);
@@ -39,7 +38,7 @@ export default function BookList() {
 			<div className="MainPageBody">
 				<div className="BookShelfTop">
 					<div className="MainPageSubjects"> {subjects} </div>
-					<img className="PlantPot" src="/plantpot.png"/>
+					<img className="PlantPot" src="/plantpot.png" alt="ERROR" />
 				</div>
 				<div className="Shelf"/>
 			</div>
