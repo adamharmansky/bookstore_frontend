@@ -1,6 +1,5 @@
 import React from 'react'
 import Axios from 'axios'
-import './App.css'
 import {bookList} from './Utility'
 
 const config = require('./config')
@@ -19,7 +18,7 @@ export default function AuthorPage() {
 
     return (
         <div className="AuthorPageContainer">
-            <h1 className="AuthorPageHeading"> {"Knihy od autora " + authorData.author_name} </h1>
+            <h1 className="PageHeading"> {"Knihy od autora " + authorData.author_name} </h1>
             {authorData.books ? bookList(authorData.books) : []}
         </div>
     )

@@ -3,7 +3,6 @@ import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import "./App.css";
 
 const config = require("./config");
 
