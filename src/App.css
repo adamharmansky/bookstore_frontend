@@ -46,11 +46,11 @@ body {
 a {
     color: #81a1c9;
     font-weight: var(--fw-mid);
+    transition: opacity 0.5s ease;
 }
 
 a:hover {
     opacity: 0.8;
-    transition: 0.5s ease;
 }
 
 b, strong { font-weight: var(--fw-bold); }
