@@ -1,6 +1,5 @@
 import React from 'react';
 import Axios from 'axios';
-import './App.css';
 import {get_query, bookList as listBooks} from './Utility';
 
 const config = require('./config')

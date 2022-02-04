@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
-import './App.css'
+import './BookPage.css'
 import {minutesToReadableTime} from './Utility'
 
 const config = require('./config')

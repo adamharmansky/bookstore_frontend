@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './App.css'
+import './styles.css'
 import BookList from './BookList'
 import MainPage from './MainPage'
 import BookPage from './BookPage'
