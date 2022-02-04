@@ -51,6 +51,11 @@
     border-radius: 15px;
     /* border: 2px solid lightgray; */
     float: right;
-    width: 30%;
+    width: 40%;
     margin-left: 1rem ;
+}
+
+@media (max-width: 2000) {
+    .BookPageImage {
+    }
 }

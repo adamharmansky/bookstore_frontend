@@ -38,7 +38,7 @@ export default function AuthorList() {
                 {authorList.map((value, key) => {
                     return (
                         <a className='ListItem' href={"/author/" + value.author_id}>
-                            <div className='ListItemTitle'> {value.author_name} </div>
+                            <h2 className='ListItemTitle'> {value.author_name} </h2>
                         </a>
                     );
                 })}
