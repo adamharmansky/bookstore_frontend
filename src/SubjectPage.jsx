@@ -35,7 +35,7 @@ export default function BookList() {
 
     return (
         <div>
-            <h1 className="BooksHeading"> {subjectInfo.subject_name ? subjectInfo.subject_name : 'Neznámy predmet'} </h1>
+            <h1 className="PageHeading"> {subjectInfo.subject_long_name ? subjectInfo.subject_long_name : 'Neznámy predmet'} </h1>
             <form className="SearchForm" name="search_form">
                     <input name="q" type="text" placeholder="Zadajte názov knihy..." defaultValue={query}/>
             </form>
