@@ -1,6 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import {bookList} from './Utility'
+import DocumentMeta from 'react-document-meta'
 
 const config = require('./config')
 
@@ -16,8 +17,23 @@ export default function AuthorPage() {
         })
     }, [])
 
+    const description = authorData.quote ? authorData.quote : "Stránka autora " + authorData.author_name;
+	const meta = {
+		title: authorData.author_name + " - Gympos knižnica",
+		description: description,
+		meta: {
+			name: {
+				keywords: "knižnica, gymnázium, gympos, knihy, " + authorData.author_name,
+				"og:title": authorData.author_name + " - Gympos knižnica",
+                "og:description": description,
+				"og:image": "/ogimage.png"
+			}
+		}
+	};
+
     return (
         <div className='AuthorPageContainer'>
+            <DocumentMeta {...meta}/>
             <h1 className='PageHeading'> {"Knihy od autora " + authorData.author_name} </h1>
             {authorData.books ? bookList(authorData.books) : []}
         </div>

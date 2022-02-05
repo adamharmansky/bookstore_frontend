@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import './BookPage.css'
 import {minutesToReadableTime} from './Utility'
+import DocumentMeta from 'react-document-meta'
 
 const config = require('./config')
 
@@ -22,8 +23,23 @@ export default function BookPage() {
         "--subject-bg": bookData.subject_background
     };
 
+    const title = bookData.title + " - " + (bookData.authors ? bookData.authors[0].author_name + (bookData.authors.length > 1 ? ", ..." : "") : "");
+	const meta = {
+        title: title,
+		description: bookData.desc,
+		meta: {
+			name: {
+				keywords: bookData.keywords,
+                "og:title": title,
+				"og:description": bookData.desc,
+				"og:image": bookData.image
+			}
+		}
+	};
+
     return (
         <div className='BookPageContainer' style={style}>
+            <DocumentMeta {...meta}/>
             <h1> {bookData.title} </h1>
             <h2>
                 {

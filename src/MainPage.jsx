@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
+import DocumentMeta from 'react-document-meta';
 
 const config = require("./config");
 
@@ -28,8 +29,22 @@ export default function BookList() {
 		return <a className={classNames} style={style} href={"/subject/"+subject.subject_id}>{subject.subject_name}</a> 
 	});
 
+	const meta = {
+		title: "Gympos knižnica",
+		description: "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
+		meta: {
+			name: {
+				keywords: "knižnica, gymnázium, gympos, knihy",
+				"og:title": "Gympos knižnica - hlavná stránka",
+				"og:description": "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
+				"og:image": "/ogimage.png"
+			}
+		}
+	};
+
 	return (
 		<div className='MainPageContainer'>
+			<DocumentMeta {...meta}/>
 			<div className='MainPageHeading'>
 				<img className='BooksImage' src="/books.png" alt="Chýbajúci obrázok"/>
 				<h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>

@@ -121,7 +121,7 @@ h1 {
     background-color: bisque;
     position: absolute;
     height: calc(var(--book-width) - 2 * var(--border-width));
-    width: var(--book-right);
+    width: calc(var(--book-right) + 1px);
     border-radius: 3px 0 0 3px;
     margin-left: var(--book-right);
 }
