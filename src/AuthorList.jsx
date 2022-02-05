@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import {get_query} from './Utility';
-import DocumentMeta from 'react-document-meta';
 
 const config = require('./config');
 
@@ -29,24 +28,8 @@ export default function AuthorList() {
     }
     if (current_page < pageCount-1) pageNumbers.push(<a className='PageNumber' href={"/authors?page="+(current_page+1)+(query?"&q="+query:"")}>{">>"}</a>);
 
-	const meta = {
-		title: "Gympos knižnica",
-		description: "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
-		meta: {
-			name: {
-				keywords: "knižnica, gymnázium, gympos, knihy"
-            },
-            property: {
-				"og:title": "Gympos knižnica - zoznam autorov",
-				"og:description": "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
-				"og:image": "https://bookstore.harmansky.xyz/ogimage.png"
-			}
-		}
-	};
-
     return (
         <div>
-            <DocumentMeta {...meta}/>
             <h1 className='PageHeading'> Autori </h1>
             <form className='SearchForm' name="search_form">
                 <input name="q" type="text" placeholder="Zadajte meno autora..." defaultValue={query}/>

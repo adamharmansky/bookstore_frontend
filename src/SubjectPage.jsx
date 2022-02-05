@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import {get_query, bookList as listBooks} from './Utility';
-import DocumentMeta from 'react-document-meta';
 
 const config = require('./config')
 
@@ -23,21 +22,6 @@ export default function BookList() {
         });
     }, []);
 
-	const meta = {
-		title: subjectInfo.subject_name + " - Gympos knižnica",
-		description: "Stránka predmetu - " + subjectInfo.subject_long_name,
-		meta: {
-			name: {
-				keywords: subjectInfo.subject_name + subjectInfo.subject_long_name,
-            },
-            property: {
-                "og:title": subjectInfo.subject_long_name + " - Gympos knižnica",
-				"og:description": "Stránka predmetu - " + subjectInfo.subject_long_name,
-				"og:image": "https://bookstore.harmansky.xyz/ogimage.png" 
-			}
-		}
-	};
-
     const pageNumbers = [];
     const page_text = get_query('page')
     const current_page = page_text.length > 0 ? parseInt(page_text) : 0;
@@ -51,7 +35,6 @@ export default function BookList() {
 
     return (
         <div>
-            <DocumentMeta {...meta}/>
             <h1 className='PageHeading'> {subjectInfo.subject_long_name ? subjectInfo.subject_long_name : 'Neznámy predmet'} </h1>
             <form className='SearchForm' name="search_form">
                     <input name="q" type="text" placeholder="Zadajte názov knihy..." defaultValue={query}/>
