@@ -9,6 +9,7 @@ import AuthorPage from './AuthorPage'
 import AddBook from './AddBook'
 import AuthorList from './AuthorList'
 import SubjectPage from './SubjectPage'
+import Login from './Login'
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                         <Route path='/author/*' element={<AuthorPage />} />
                         <Route path='/subject/*' element={<SubjectPage />} />
                         <Route path='/add' element={<AddBook />} />
+                        <Route path='/login' element={<Login />} />
                     </Routes>
                 </Router>
             </main>

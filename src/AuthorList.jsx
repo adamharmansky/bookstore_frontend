@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import {get_query} from './Utility';
+import {pageNumbers} from './Utility';
 
 const config = require('./config');
 
@@ -17,16 +17,15 @@ export default function AuthorList() {
         })
     }, [])
 
-    const pageNumbers = [];
-    const page_text = get_query('page')
-    const current_page = page_text.length > 0 ? parseInt(page_text) : 0;
-    const query = get_query('q');
-
-    if (current_page > 0) pageNumbers.push(<a className='PageNumber' href={"/authors?page="+(current_page-1)+(query?"&q="+query:"")}>{"<<"}</a>);
-    for (let i = 0; i < pageCount; i++) {
-        pageNumbers.push(i === current_page ? <span className='CurrentPageNumber'>{i}</span> : <a className='PageNumber' href={"/authors?page="+i+(query?"&q="+query:"")}>{i}</a>);
+    const params = new URLSearchParams(window.location.search);
+    const current_page = params.has('page')  ? parseInt(params.get('page')) : 0;
+    const query =  params.has('query') ? params.get('query') : '';
+    function create_url(page) {
+        let params = [];
+        if (page) params.push('page=' + page);
+        if (query) params.push('q=' + query);
+        return "/authors/?" + params.join('&');
     }
-    if (current_page < pageCount-1) pageNumbers.push(<a className='PageNumber' href={"/authors?page="+(current_page+1)+(query?"&q="+query:"")}>{">>"}</a>);
 
     return (
         <div>
@@ -43,7 +42,7 @@ export default function AuthorList() {
                     );
                 })}
                 <p className='NotFound'> {authorList.length === 0 ? "Neboli nájdené žiadne výsledky" : ""} </p>
-                {pageCount > 1 ? <div className='PageNumbers'> {pageNumbers} </div> : []}
+                {pageCount > 1 ? <div className='PageNumbers'> { pageNumbers(current_page, pageCount, create_url) } </div> : []}
             </div>
         </div>
     );

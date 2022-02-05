@@ -1,13 +1,6 @@
-export function get_query(q) {
-    const params = new URLSearchParams(window.location.search);
-    if (params.has(q)) return params.get(q)
-    else return ''
-}
-
 export function minutesToReadableTime(minutes) {
     return ((minutes>=60?Math.floor(minutes/60)+"h ":"")+(minutes%60!==0?minutes%60+"m":""));
 }
-
 
 export function bookList(books) {
     return books.map((book) => {
@@ -40,4 +33,27 @@ export function bookList(books) {
             </a>
         )
     })
+}
+
+export function pageNumbers(current_page, page_count, page_link) {
+    let numbers = [];
+    if (current_page > 0) numbers.push(<a className='PageNumber' href={page_link(current_page-1)}>{"<<"}</a>);
+    for (let i = 0; i < page_count; i++) {
+        numbers.push(i === current_page ? <span className='CurrentPageNumber'>{i}</span> : <a className='PageNumber' href={page_link(i)}>{i}</a>);
+    }
+    if (current_page < page_count-1) numbers.push(<a className='PageNumber' href={page_link(current_page+1)}>{">>"}</a>);
+    return numbers;
+}
+
+export function loadingIcon() {
+    return (
+        <div className='LoadingPopup'>
+            <div className='LoadingIcon'>
+                <svg className="LoadingCircle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" stroke="#219e50" d="M10,50 a40,40 0 0,0 40,40" stroke-linecap='round' stroke-width='10' />
+                </svg>
+            </div>
+            <div className='LoadingText'> Obsah sa načítava </div>
+        </div>
+    );
 }

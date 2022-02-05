@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import {get_query, bookList as listBooks} from './Utility';
+import './BookPage.css'
+import {pageNumbers, bookList as listBooks} from './Utility';
 
 const config = require('./config')
 
@@ -11,7 +12,7 @@ export default function BookList() {
 
     React.useEffect(() => {
         const url = new URL(window.location.href)
-        Axios.get(config.apiUrl + 'list' + url.search + (url.search ? '&' : '?') + 'subject=' + window.location.pathname.match('[^/]*$')).then((data) => {
+        Axios.get(config.apiUrl + 'list' + url.search + (url.search ? '&' : '?') + 'subject=' + window.location.pathname.match('[^/?]*$')).then((data) => {
             console.log(data);
             setBookList(data.data.books);
             setPageCount(data.data.pageCount);
@@ -22,16 +23,16 @@ export default function BookList() {
         });
     }, []);
 
-    const pageNumbers = [];
-    const page_text = get_query('page')
-    const current_page = page_text.length > 0 ? parseInt(page_text) : 0;
-    const query = get_query('q')
-
-    if (current_page > 0) pageNumbers.push(<a className='pageNumber' href={"/list?page="+(current_page-1)+(query?"&q="+query:"")}>{"<<"}</a>);
-    for (let i = 0; i < pageCount; i++) {
-        pageNumbers.push(i === current_page ? <span className='currentPageNumber'>{i}</span> : <a className='pageNumber' href={"/list?page="+i+(query?"&q="+query:"")}>{i}</a>);
+    const params = new URLSearchParams(window.location.search);
+    const current_page = params.has('page')  ? parseInt(params.get('page')) : 0;
+    const query =  params.has('query') ? params.get('query') : '';
+    const subject = parseInt(window.location.pathname.match('[^/?]*$'));
+    function create_url(page) {
+        let params = [];
+        if (page) params.push('page=' + page);
+        if (query) params.push('q=' + query);
+        return "/subject/"+subject+"?" + params.join('&');
     }
-    if (current_page < pageCount-1) pageNumbers.push(<a className='pageNumber' href={"/list?page="+(current_page+1)+(query?"&q="+query:"")}>{">>"}</a>);
 
     return (
         <div>
@@ -42,7 +43,7 @@ export default function BookList() {
             <div className='BookList'>
                 {listBooks(bookList)}
                 <p className='NotFound'> {bookList.length === 0 ? "Neboli nájdené žiadne knihy" : ""} </p>
-                {pageCount > 1 ? <div className='pageNumbers'> {pageNumbers} </div> : []}
+                {pageCount > 1 ? <div className='PageNumbers'> { pageNumbers(current_page, pageCount, create_url) } </div> : []}
             </div>
         </div>
     );
