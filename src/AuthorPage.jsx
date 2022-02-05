@@ -17,8 +17,8 @@ export default function AuthorPage() {
     }, [])
 
     return (
-        <div className="AuthorPageContainer">
-            <h1 className="PageHeading"> {"Knihy od autora " + authorData.author_name} </h1>
+        <div className='AuthorPageContainer'>
+            <h1 className='PageHeading'> {"Knihy od autora " + authorData.author_name} </h1>
             {authorData.books ? bookList(authorData.books) : []}
         </div>
     )

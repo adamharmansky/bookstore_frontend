@@ -22,22 +22,22 @@ export default function BookList() {
     const current_page = page_text.length > 0 ? parseInt(page_text) : 0;
     const query = get_query('q')
 
-    if (current_page > 0) pageNumbers.push(<a className="PageNumber" href={"/list?page="+(current_page-1)+(query?"&q="+query:"")}>{"<<"}</a>);
+    if (current_page > 0) pageNumbers.push(<a className='PageNumber' href={"/list?page="+(current_page-1)+(query?"&q="+query:"")}>{"<<"}</a>);
     for (let i = 0; i < pageCount; i++) {
-        pageNumbers.push(i === current_page ? <span className="CurrentPageNumber">{i}</span> : <a className="PageNumber" href={"/list?page="+i+(query?"&q="+query:"")}>{i}</a>);
+        pageNumbers.push(i === current_page ? <span className='CurrentPageNumber'>{i}</span> : <a className='PageNumber' href={"/list?page="+i+(query?"&q="+query:"")}>{i}</a>);
     }
-    if (current_page < pageCount-1) pageNumbers.push(<a className="PageNumber" href={"/list?page="+(current_page+1)+(query?"&q="+query:"")}>{">>"}</a>);
+    if (current_page < pageCount-1) pageNumbers.push(<a className='PageNumber' href={"/list?page="+(current_page+1)+(query?"&q="+query:"")}>{">>"}</a>);
 
     return (
         <div>
-            <h1 className="PageHeading"> Knihy </h1>
-            <form className="SearchForm" name="search_form">
+            <h1 className='PageHeading'> Knihy </h1>
+            <form className='SearchForm' name="search_form">
                     <input name="q" type="text" placeholder="Zadajte názov knihy..." defaultValue={query}/>
             </form>
             <div className='PageList'>
                 {listBooks(bookList)}
                 <p> {bookList.length === 0 ? "Neboli nájdené žiadne knihy" : ""} </p>
-                {pageCount > 1 ? <div className="PageNumbers"> {pageNumbers} </div> : []}
+                {pageCount > 1 ? <div className='PageNumbers'> {pageNumbers} </div> : []}
             </div>
         </div>
     );

@@ -79,7 +79,7 @@ export default function AddBook() {
     };
 
     return (
-        <div className="BookPageContainer" style={style}>
+        <div className='BookPageContainer' style={style}>
             <h1> {title ? title : "Nová kniha"} </h1>
             <h2> {authors ? authors.join(', ') : "Nezámy autor"} </h2>
 

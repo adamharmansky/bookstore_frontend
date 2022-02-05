@@ -23,24 +23,24 @@ export default function BookList() {
             "--subject-bg":   subject.subject_background,
         };
 
-		const classNames = "SubjectBook "+(i===subjectList.length-2?"LastUpright ":"")+(i===subjectList.length-1?"LastBook":"");
+		const classNames = "SubjectBook "+(i===subjectList.length-1?"LastBook":"");
 
 		return <a className={classNames} style={style} href={"/subject/"+subject.subject_id}>{subject.subject_name}</a> 
 	});
 
 	return (
-		<div className="MainPageContainer">
-			<div className="MainPageHeading">
-				<img className="BooksImage" src="/books.png" alt="Chýbajúci obrázok"/>
+		<div className='MainPageContainer'>
+			<div className='MainPageHeading'>
+				<img className='BooksImage' src="/books.png" alt="Chýbajúci obrázok"/>
 				<h1>GYMPOS Knižnica</h1>
 			</div>
-			<div className="HeadingShelf"/>
-			<div className="MainPageBody">
-				<div className="BookShelfTop">
-					<div className="MainPageSubjects"> {subjects} </div>
-					<img className="PlantPot" src="/plantpot.png" alt="ERROR" />
+			<div className='HeadingShelf'/>
+			<div className='MainPageBody'>
+				<div className='BookShelfTop'>
+					<div className='MainPageSubjects'> {subjects} </div>
+					<img className='PlantPot' src="/plantpot.png" alt="ERROR" />
 				</div>
-				<div className="Shelf"/>
+				<div className='Shelf'/>
 			</div>
 		
 		</div>

@@ -12,7 +12,7 @@
   }
 }
 
-.PageList > p {
+.NotFound {
     animation: 1s ease-in 0s 1 fadeIn;
     text-align: center;
     padding: 1em;

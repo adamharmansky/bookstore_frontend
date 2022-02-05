@@ -15,7 +15,7 @@ export function bookList(books) {
 
         if (book.authors) {
             authors = book.authors.map((author) => {
-                return <span><a className="BookPageAuthor" href={"/author/"+author.author_id}>{author.author_name}</a>; </span>;
+                return <span><a className='BookPageAuthor' href={"/author/"+author.author_id}>{author.author_name}</a>; </span>;
             });
         }
 
