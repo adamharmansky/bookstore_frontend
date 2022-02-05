@@ -39,7 +39,7 @@ export default function BookList() {
             property: {
 				"og:title": "Gympos knižnica - zoznam kníh",
 				"og:description": "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
-				"og:image": "/ogimage.png"
+				"og:image": "https://bookstore.harmansky.xyz/ogimage.png"
 			}
 		}
 	};

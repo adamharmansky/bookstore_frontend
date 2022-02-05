@@ -34,7 +34,7 @@ export default function BookPage() {
             property: {
                 "og:title": title,
 				"og:description": bookData.desc,
-				"og:image": bookData.image
+				"og:image": "https://bookstore.harmansky.xyz/" + bookData.image
 			}
 		}
 	};

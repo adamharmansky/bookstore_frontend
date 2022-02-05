@@ -28,7 +28,7 @@ export default function AuthorPage() {
             property: {
 				"og:title": authorData.author_name + " - Gympos knižnica",
                 "og:description": description,
-				"og:image": "/ogimage.png"
+				"og:image": "https://bookstore.harmansky.xyz/ogimage.png"
 			}
 		}
 	};

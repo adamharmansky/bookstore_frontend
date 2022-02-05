@@ -33,7 +33,7 @@ export default function BookList() {
             property: {
                 "og:title": subjectInfo.subject_long_name + " - Gympos knižnica",
 				"og:description": "Stránka predmetu - " + subjectInfo.subject_long_name,
-				"og:image": "/ogimage.png" 
+				"og:image": "https://bookstore.harmansky.xyz/ogimage.png" 
 			}
 		}
 	};
