@@ -34,7 +34,9 @@ export default function AuthorList() {
 		description: "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
 		meta: {
 			name: {
-				keywords: "knižnica, gymnázium, gympos, knihy",
+				keywords: "knižnica, gymnázium, gympos, knihy"
+            },
+            property: {
 				"og:title": "Gympos knižnica - zoznam autorov",
 				"og:description": "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
 				"og:image": "/ogimage.png"

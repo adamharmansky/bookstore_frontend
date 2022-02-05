@@ -29,6 +29,8 @@ export default function BookList() {
 		meta: {
 			name: {
 				keywords: subjectInfo.subject_name + subjectInfo.subject_long_name,
+            },
+            property: {
                 "og:title": subjectInfo.subject_long_name + " - Gympos knižnica",
 				"og:description": "Stránka predmetu - " + subjectInfo.subject_long_name,
 				"og:image": "/ogimage.png" 

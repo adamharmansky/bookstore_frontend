@@ -24,6 +24,8 @@ export default function AuthorPage() {
 		meta: {
 			name: {
 				keywords: "knižnica, gymnázium, gympos, knihy, " + authorData.author_name,
+            },
+            property: {
 				"og:title": authorData.author_name + " - Gympos knižnica",
                 "og:description": description,
 				"og:image": "/ogimage.png"

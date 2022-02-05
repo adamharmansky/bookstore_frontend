@@ -30,6 +30,8 @@ export default function BookPage() {
 		meta: {
 			name: {
 				keywords: bookData.keywords,
+            },
+            property: {
                 "og:title": title,
 				"og:description": bookData.desc,
 				"og:image": bookData.image

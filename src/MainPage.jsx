@@ -35,6 +35,8 @@ export default function BookList() {
 		meta: {
 			name: {
 				keywords: "knižnica, gymnázium, gympos, knihy",
+            },
+            property: {
 				"og:title": "Gympos knižnica - hlavná stránka",
 				"og:description": "Vitajte na stránke knižnice Gymnázia Posťová 9 v Košiciach!",
 				"og:image": "/ogimage.png"
