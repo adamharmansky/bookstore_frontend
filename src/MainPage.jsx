@@ -32,7 +32,7 @@ export default function BookList() {
 		<div className='MainPageContainer'>
 			<div className='MainPageHeading'>
 				<img className='BooksImage' src="/books.png" alt="Chýbajúci obrázok"/>
-				<h1>GYMPOS Knižnica</h1>
+				<h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
 			</div>
 			<div className='HeadingShelf'/>
 			<div className='MainPageBody'>
@@ -41,8 +41,10 @@ export default function BookList() {
 					<img className='PlantPot' src="/plantpot.png" alt="ERROR" />
 				</div>
 				<div className='Shelf'/>
+				<div className='BoardsContainer'>
+					<div className='Board'></div>
+				</div>
 			</div>
-		
 		</div>
 	);
 }

@@ -101,5 +101,5 @@ h3 { font-size: var(--fs-h3); }
 
 main {
     flex-grow: 1;
-    margin: 1em;
+    margin: min(2.5%, 2em);
 }

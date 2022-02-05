@@ -2,7 +2,7 @@
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    padding: .75em;
+    padding: 2%;
     background-color: white;
     box-shadow: 0 0 1em #00000018;
     border-radius: 8px
@@ -28,9 +28,13 @@ h1 {
     margin-bottom: -1px;
 }
 
+.GymposGreen {
+    color: #1e7813;
+}
+
 .Shelf,
 .HeadingShelf {
-   height: 12px;
+   height: min(2vw, 10px);
    border-radius: 3px; 
    background-color: #96613d;
    border: 2px solid #83502e;
@@ -41,10 +45,11 @@ h1 {
 }
 
 .MainPageBody {
-    margin: 1em;
+    margin: 0 2%;
 }
 
 .BookShelfTop {
+    margin-top: min(2vw, 2em);
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -52,9 +57,10 @@ h1 {
 }
 
 .PlantPot {
-    width: 130px;
-    margin-bottom: -118px;
-    margin-right: 20px;
+    max-width: 16%;
+    margin-bottom: calc(16% * -0.937);
+    margin-right: 2%;
+    z-index: 100;
 }
 
 .MainPageSubjects {
@@ -67,11 +73,15 @@ h1 {
 }
 
 .SubjectBook {
-    height: 80px;
-    width: 50px;
-    border-right: 25px solid var(--subject-clr1);
+    --book-width: min(3vw, 30px);
+    --book-height: min(10vw, 100px);
+    --book-right: min(3vw, 30px);
+
+    height: var(--book-height);
+    width: calc(var(--book-width) + var(--book-right));
+    border-right: var(--book-right) solid var(--subject-clr1);
     border-radius: 2px;
-    margin-right: -16px;
+    margin-right: calc(var(--book-right) * -0.65);
 
     background-color: var(--subject-clr0);
     color: var(--clr-dark);
@@ -80,47 +90,73 @@ h1 {
     writing-mode: vertical-rl;
     text-decoration: none;
     text-align: center;
+    font-size: calc(var(--book-width) * 0.68);
     z-index:0;
     transition: transform 0.35s ease; /* vendorless fallback */
 }
 
 .SubjectBook:hover {
     opacity: 1;
-    transform: translateY(-12px);
+    transform: translateY(calc(var(--book-height) * -0.2));
 }
 
 /* This book is on its left side */
 .LastBook {
-    width: 100px;
-    height: 25px;
-    border-right: 25px solid bisque;
-    border-top: 2px solid var(--subject-clr0);
-    border-bottom: 2px solid var(--subject-clr0);
+    --border-width: min(0.2vw, 2px);
+
+    width: calc(var(--book-height) + var(--book-right));
+    height: var(--book-width);
+    border-right: var(--book-right) solid var(--subject-clr0);
+    border-top: var(--border-width) solid var(--subject-clr1);
+    border-bottom: var(--border-width) solid var(--subject-clr0);
     writing-mode: unset;
+}
+
+/* .LastBook:hover {
+    transform: translateX(calc(var(--book-height) * 0.2));
+} */
+
+.LastBook::after {
+    content: "";
+    background-color: bisque;
+    position: absolute;
+    height: calc(var(--book-width) - 2 * var(--border-width));
+    width: var(--book-right);
+    border-radius: 3px 0 0 3px;
+    margin-left: var(--book-right);
 }
 
 
 @media(max-width:700px) {
-    .BooksImage {
-        height: 42px;
-    }
-    h1 {
-        font-size: 42px;
-    }
+    .BooksImage { height: 42px; }
+    h1 { font-size: 42px; }
 }
 
 @media(max-width:500px) {
-    .MainPageHeading {
-        justify-content: center;
-    }
-    .BooksImage {
-        display: none;
-    }
+    .MainPageHeading { justify-content: center; }
+    .BooksImage { display: none; }
+    .Shelf { height: 2vw; }
+
     h1 {
         font-size: 10vw;
         margin-left: 0;
     }
-    .Shelf {
-        height: 2vw;
-    }
+}
+
+.BoardsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.Board {
+    --board-width: min(90vw, 600px);
+    width: var(--board-width);
+    height: calc(var(--board-width) * 0.5);
+    margin: 5%;
+    padding: 5%;
+    background-color: #0d6627;
+    border: 8px solid #704528;
+    border-radius: 3px;
 }
