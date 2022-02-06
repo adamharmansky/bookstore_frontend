@@ -11,6 +11,17 @@ import './BookPage.css'
 
 const config = require("./config");
 
+function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    const cArr = cDecoded.split('; ');
+    let res;
+    cArr.forEach(val => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+    })
+    return res.trim();
+}
+
 export default function AddBook() {
     const [title, setTitle] = React.useState("");
     const [authors, setAuthors] = React.useState("");
@@ -31,6 +42,18 @@ export default function AddBook() {
     const [langOptions, setLangOptions] = React.useState([]);
 
     React.useEffect(() => {
+        let cookie = getCookie("session_key");
+
+        Axios.post(config.apiUrl + 'verifykey', {
+            key: cookie ? cookie : "lmao"
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err)=>{
+            console.log(err);
+            window.location.href = "/login"
+        });
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
             console.log(data);
             setSubjectOptions(data.data);
@@ -54,6 +77,7 @@ export default function AddBook() {
         formData.append("image", image, image.name);
         Axios.post(config.apiUrl + "image/new", formData);
         Axios.post(config.apiUrl + "book/new/", {
+            key: document.cookie,
             title: title,
             authors: authors,
             desc: description,
