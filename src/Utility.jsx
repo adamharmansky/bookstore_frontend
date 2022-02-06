@@ -1,3 +1,7 @@
+import Axios from "axios";
+
+const config = require("./config");
+
 export function minutesToReadableTime(minutes) {
     return ((minutes>=60?Math.floor(minutes/60)+"h ":"")+(minutes%60!==0?minutes%60+"m":""));
 }
@@ -56,4 +60,27 @@ export function loadingIcon() {
             <div className='LoadingText'> Obsah sa načítava </div>
         </div>
     );
+}
+
+export function validateSession() {
+    function invalidateSession() {
+        document.cookie = 'session_key=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+        document.cookie = 'username=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+        window.location.href = "/login"
+    }
+
+    let match = document.cookie.match('session_key=[^;]+');
+    if (!match) invalidateSession();
+    let cookey = match[0].split('=')[1];
+
+    if (cookey) {
+        Axios.post(config.apiUrl + 'verifykey', {
+            key: cookey
+        }).catch((err)=> {
+            console.log(err);
+            invalidateSession();
+        });
+    } else {
+        invalidateSession();
+    }
 }

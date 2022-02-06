@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import './BookPage.css'
+import {validateSession} from './Utility';
 
 const config = require("./config");
 
@@ -42,18 +43,8 @@ export default function AddBook() {
     const [langOptions, setLangOptions] = React.useState([]);
 
     React.useEffect(() => {
-        let cookie = getCookie("session_key");
+        validateSession();
 
-        Axios.post(config.apiUrl + 'verifykey', {
-            key: cookie ? cookie : "lmao"
-        })
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((err)=>{
-            console.log(err);
-            window.location.href = "/login"
-        });
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
             console.log(data);
             setSubjectOptions(data.data);
@@ -75,9 +66,10 @@ export default function AddBook() {
         }
         const formData = new FormData();
         formData.append("image", image, image.name);
+        formData.append("key", getCookie("session_key"));
         Axios.post(config.apiUrl + "image/new", formData);
         Axios.post(config.apiUrl + "book/new/", {
-            key: document.cookie,
+            key: getCookie("session_key"),
             title: title,
             authors: authors,
             desc: description,

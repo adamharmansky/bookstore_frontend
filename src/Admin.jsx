@@ -1,8 +1,13 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import './BookPage.css'
+import {validateSession} from './Utility';
 
 export default function Admin() {
+    React.useEffect(() => {
+        validateSession();
+    }, []);
+
     return (
         <div className='BookPageContainer'>
             <h1> Administrátor </h1>

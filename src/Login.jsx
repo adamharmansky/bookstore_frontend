@@ -14,7 +14,7 @@ export default function Login() {
 
     function authorize() {
         let ret = false;
-        if (!username) { 
+        if (!username) {
             setErrorName(true);
             ret = true;
         }
@@ -32,6 +32,7 @@ export default function Login() {
             d.setTime(d.getTime() + 60*60*24*1000);
             document.cookie = 'session_key=' + data.data + "; expires=" + d.toUTCString() + "; SameSite=Strict; Secure";
             document.cookie = 'username=' + username + "; expires=" + d.toUTCString() + "; SameSite=Strict; Secure";
+            window.location = '/admin';
         }).catch((err)=>{
             setErrorName(true);
             setErrorPass(true);

@@ -166,3 +166,25 @@ h1 {
     font-family: 'Syne Tactile', sans-serif;
     font-size: 2rem;
 }
+
+.InfoLink {
+    list-style: none;
+    text-align: center;
+    font-size: 1rem;
+    display: block;
+}
+
+.InfoLinksHeading {
+    text-align: center;
+}
+
+.InfoLinksContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.InfoLinksColumn {
+    min-width: 20em;
+}
