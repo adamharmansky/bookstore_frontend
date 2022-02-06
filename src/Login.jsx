@@ -17,7 +17,8 @@ export default function Login() {
         }).then((data)=>{
             const d = new Date();
             d.setTime(d.getTime() + 60*60*24*1000);
-            document.cookie = 'session_key=' + data.data + "; expires=" + d.toUTCString();
+            document.cookie = 'session_key=' + data.data + "; expires=" + d.toUTCString() + "; SameSite=Strict; Secure";
+            document.cookie = 'username=' + username + "; expires=" + d.toUTCString() + "; SameSite=Strict; Secure";
             console.log(document.cookie);
         }).catch((err)=>{
             console.log(err);
