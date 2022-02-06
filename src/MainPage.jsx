@@ -41,7 +41,7 @@ export default function BookList() {
                 </div>
                 <div className='Shelf'/>
                 <div className='BoardsContainer'>
-                    <div className='Board'></div>
+                    <div className='Board'>Sem pôjde instagram...</div>
                 </div>
             </div>
         </div>
