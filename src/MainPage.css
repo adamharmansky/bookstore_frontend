@@ -79,7 +79,7 @@ h1 {
     --book-height: min(10vw, 100px);
     --book-right: min(3vw, 30px);
 
-    height: var(--book-height);
+    /* height: var(--book-height); */
     width: calc(var(--book-width) + var(--book-right));
     border-right: var(--book-right) solid var(--subject-clr1);
     border-radius: 2px;
@@ -95,6 +95,7 @@ h1 {
     font-size: calc(var(--book-width) * 0.68);
     z-index:0;
     transition: transform 0.35s ease; /* vendorless fallback */
+    padding: 1.5em 0em;
 }
 
 .SubjectBook:hover {
@@ -112,6 +113,7 @@ h1 {
     border-top: var(--border-width) solid var(--subject-clr1);
     border-bottom: var(--border-width) solid var(--subject-clr0);
     writing-mode: unset;
+    padding: 0;
 }
 
 /* .LastBook:hover {

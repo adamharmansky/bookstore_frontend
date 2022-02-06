@@ -83,7 +83,7 @@ export default function AddBook() {
             isbn: isbn,
             image: '/pub/' + image.name
         }).then((response) => {
-            console.log(response);
+            window.location.href = '/list';
         });
     }
 

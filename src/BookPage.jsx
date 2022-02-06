@@ -2,11 +2,13 @@ import React from 'react'
 import Axios from 'axios'
 import './BookPage.css'
 import {minutesToReadableTime} from './Utility'
+import Button from "@material-ui/core/Button";
 
 const config = require('./config')
 
 export default function BookPage() {
     const [bookData, setBookData] = React.useState([]);
+    let can_remove_books = document.cookie.match('session_key=') ? true : false;
 
     React.useEffect(() => {
         Axios.get(config.apiUrl + 'book/?book=' + window.location.pathname.match('[^/]*$')).then((data) => {
@@ -14,6 +16,14 @@ export default function BookPage() {
             setBookData(data.data)
         })
     }, []);
+
+    function remove_book() {
+        Axios.post(config.apiUrl + 'book/remove?book=' + window.location.pathname.match('[^/]*$'), {
+            key: document.cookie.match('session_key=[^;]+')[0].split('=')[1]
+        }).then((data) => {
+            window.location.href = '/list';
+        });
+    }
 
     const style = {
         "--subject-clr0": bookData.subject_color0,
@@ -34,6 +44,7 @@ export default function BookPage() {
             </h2>
             <div className='BookPageText'>
                 <img src={bookData.image ? bookData.image : "/reading.png"} alt='Chýbajúci obrázok' className='BookPageImage' />
+                { can_remove_books ? <Button variant='contained' onClick={remove_book}> Odstrániť knihu </Button> : []} 
                 <h3>O KNIHE</h3>
                 <p>{bookData.desc}</p>
                 <span className='BookPageInfo'>

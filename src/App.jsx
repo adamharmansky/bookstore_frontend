@@ -19,6 +19,7 @@ function App() {
                 <a className='NavBarButton' href='/'> Domov </a>
                 <a className='NavBarButton' href='/list'> Zoznam kníh </a>
                 <a className='NavBarButton' href='/authors'> Zoznam autorov </a>
+                {document.cookie.match('session_key=') ? <a className='NavBarButton' href='/admin'> Prihlásený ako {document.cookie.match('username=[^;]+')[0].split('=')[1]} </a> : []}
                 {/* <a className='NavBarButton' href='/add'> Pridať knihu </a> */}
             </div>
             <main>
