@@ -8,20 +8,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import './BookPage.css'
-import {validateSession} from './Utility';
+import {validateSession, getCookie} from './Utility';
 
 const config = require("./config");
-
-function getCookie(cName) {
-    const name = cName + "=";
-    const cDecoded = decodeURIComponent(document.cookie); //to be careful
-    const cArr = cDecoded.split('; ');
-    let res;
-    cArr.forEach(val => {
-        if (val.indexOf(name) === 0) res = val.substring(name.length);
-    })
-    return res.trim();
-}
 
 export default function AddBook() {
     const [title, setTitle] = React.useState("");
@@ -97,7 +86,7 @@ export default function AddBook() {
     return (
         <div className='BookPageContainer' style={style}>
             <h1> {title ? title : "Nová kniha"} </h1>
-            <h2> {authors ? authors.join(', ') : "Nezámy autor"} </h2>
+            <h2> {authors ? authors.join(', ') : "Neznámy autor"} </h2>
 
             <TextField fullWidth label="Názov knihy" onChange={(e) => { setTitle(e.target.value); }} />
 

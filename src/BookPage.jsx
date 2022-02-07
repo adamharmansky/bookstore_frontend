@@ -1,14 +1,14 @@
 import React from 'react'
 import Axios from 'axios'
 import './BookPage.css'
-import {minutesToReadableTime} from './Utility'
 import Button from "@material-ui/core/Button";
+import {minutesToReadableTime, getCookie} from './Utility'
 
 const config = require('./config')
 
 export default function BookPage() {
     const [bookData, setBookData] = React.useState([]);
-    let can_remove_books = document.cookie.match('session_key=') ? true : false;
+    let can_remove_books = getCookie('session_key') ? true : false;
 
     React.useEffect(() => {
         Axios.get(config.apiUrl + 'book/?book=' + window.location.pathname.match('[^/]*$')).then((data) => {
@@ -19,7 +19,7 @@ export default function BookPage() {
 
     function remove_book() {
         Axios.post(config.apiUrl + 'book/remove?book=' + window.location.pathname.match('[^/]*$'), {
-            key: document.cookie.match('session_key=[^;]+')[0].split('=')[1]
+            key: getCookie('session_key')
         }).then((data) => {
             window.location.href = '/list';
         });

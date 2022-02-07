@@ -66,6 +66,12 @@ export function loadingIcon() {
     );
 }
 
+export function getCookie(name) {
+    let match = document.cookie.match(name + '=[^;]+');
+    if (!match) { return undefined; }
+    return match[0].split('=')[1];
+}
+
 function invalidateSession() {
     document.cookie = 'session_key=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
     document.cookie = 'username=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
@@ -73,9 +79,8 @@ function invalidateSession() {
 }
 
 export function validateSession() {
-    let match = document.cookie.match('session_key=[^;]+');
-    if (!match) invalidateSession();
-    let cookey = match[0].split('=')[1];
+    let cookey = getCookie('session_key');
+    if (!cookey) return invalidateSession();
 
     if (cookey) {
         Axios.post(config.apiUrl + 'verifykey', {
@@ -90,12 +95,8 @@ export function validateSession() {
 }
 
 export function logout() {
-    let match = document.cookie.match('session_key=[^;]+');
-    if (!match) {
-        invalidateSession();
-        return;
-    }
-    let cookey = match[0].split('=')[1];
+    let cookey = getCookie('session_key');
+    if (!cookey) return invalidateSession();
 
     Axios.post(config.apiUrl + 'logout', {
         key: cookey
