@@ -23,19 +23,23 @@ export function bookList(books) {
             "--subject-bg":   book.subject_background
         };
 
-        return (
-            <a key={book.title} className='ListItem' href={'/book/' + book.isbn} style={style}>
-                    <div className='BookListItemStripe'> </div>
-                    <img className='BookListItemImage' src={book.image ? book.image : "/reading.png"} alt='Chýbajúci obrázok'></img>
-                    <div className='BookListItemBlock'>
-                        <h3> {book.title} </h3>
-                        <div className='BookListItemInfo'>
-                            {authors}{book.year_pub}, {book.pages} strán, {minutesToReadableTime(book.read_time)}, {book.lang_name}, {book.subject_name}
+        return book.title ? (
+                <a key={book.title} className='ListItem' href={'/book/' + book.isbn} style={style}>
+                        <div className='BookListItemStripe'> </div>
+                        <img className='BookListItemImage' src={book.image ? book.image : "/reading.png"} alt='Chýbajúci obrázok'></img>
+                        <div className='BookListItemBlock'>
+                            <h3> {book.title} </h3>
+                            <div className='BookListItemInfo'>
+                                {authors}{book.year_pub}, {book.pages} strán, {minutesToReadableTime(book.read_time)}, {book.lang_name}, {book.subject_name}
+                            </div>
+                            <p className='BookListItemDescription'> {book.desc ? book.desc.slice(0,360) + (book.desc.length > 360 ? "..." : "") : "Žiaden popis"} </p>
                         </div>
-                        <p className='BookListItemDescription'> {book.desc ? book.desc.slice(0,360) + (book.desc.length > 360 ? "..." : "") : "Žiaden popis"} </p>
-                    </div>
-            </a>
-        )
+                </a>
+            ):(
+                <a key={book.title} className='ListItem ErrorListItem' href={'/book/' + book.isbn} style={style}>
+                    ERROR
+                </a>
+            );
     })
 }
 
@@ -62,13 +66,13 @@ export function loadingIcon() {
     );
 }
 
-export function validateSession() {
-    function invalidateSession() {
-        document.cookie = 'session_key=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
-        document.cookie = 'username=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
-        window.location.href = "/login"
-    }
+function invalidateSession() {
+    document.cookie = 'session_key=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+    document.cookie = 'username=lmao;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+    window.location.href = "/login"
+}
 
+export function validateSession() {
     let match = document.cookie.match('session_key=[^;]+');
     if (!match) invalidateSession();
     let cookey = match[0].split('=')[1];
@@ -83,4 +87,21 @@ export function validateSession() {
     } else {
         invalidateSession();
     }
+}
+
+export function logout() {
+    let match = document.cookie.match('session_key=[^;]+');
+    if (!match) {
+        invalidateSession();
+        return;
+    }
+    let cookey = match[0].split('=')[1];
+
+    Axios.post(config.apiUrl + 'logout', {
+        key: cookey
+    }).then((data)=>{
+        invalidateSession();
+    }).catch((err) => {
+        invalidateSession();
+    });
 }

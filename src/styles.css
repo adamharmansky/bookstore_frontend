@@ -72,6 +72,21 @@
     background-color: #e7eaf0a1;
 }
 
+.ErrorListItem {
+    background-color: #ff202080;
+    text-align: center;
+    display: block;
+    color: #800000;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 1rem;
+    font-family: monospace;
+}
+
+.ErrorListItem:hover {
+    background-color: #ff2020a0;
+}
+
 .BookListItemStripe {
     min-width: 10px;
     position: relative;

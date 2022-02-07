@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import './BookPage.css'
-import {validateSession} from './Utility';
+import {validateSession, logout} from './Utility';
 
 export default function Admin() {
     React.useEffect(() => {
@@ -15,6 +15,7 @@ export default function Admin() {
                 <div className='AdminOptionContainer'>
                     <h2> {"Prihlásený ako " + document.cookie.match('username=[^;]+')[0].split('=')[1]} </h2>
                     <Button fullWidth onClick={()=>(window.location = '/add')}> Pridať knihu </Button>
+                    <Button fullWidth onClick={logout}> Odhlásiť </Button>
                 </div>
             :
                 <Button fullWidth onClick={()=>(window.location = '/login')}> Prihlásiť </Button>
