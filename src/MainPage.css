@@ -37,9 +37,9 @@ h1 {
 .Shelf,
 .HeadingShelf {
    height: min(2vw, 10px);
-   border-radius: 3px; 
+   border-radius: 2px;
    background-color: #96613d;
-   border: 2px solid #83502e;
+   border-top: 4px solid #83502e;
 }
 
 .HeadingShelf {

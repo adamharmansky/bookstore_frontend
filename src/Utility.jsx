@@ -25,10 +25,9 @@ export function bookList(books) {
 
         return book.title ? (
                 <a key={book.title} className='ListItem' href={'/book/' + book.isbn} style={style}>
-                        <div className='BookListItemStripe'> </div>
                         <img className='BookListItemImage' src={book.image ? book.image : "/reading.png"} alt='Chýbajúci obrázok'></img>
                         <div className='BookListItemBlock'>
-                            <h3> {book.title} </h3>
+                            <h3 class='BookListItemHeading'> {book.title} </h3>
                             <div className='BookListItemInfo'>
                                 {authors}{book.year_pub}, {book.pages} strán, {minutesToReadableTime(book.read_time)}, {book.lang_name}, {book.subject_name}
                             </div>

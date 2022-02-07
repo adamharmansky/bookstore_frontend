@@ -48,7 +48,7 @@
     flex-direction: row;
     justify-content: left;
     margin: 0.7em 0 0.7em 0;
-    padding: 1em;
+    padding: 0.5em;
     border-color: #dee1e6;
     border-style: solid;
     border-width: 2px;
@@ -58,18 +58,20 @@
     background-color: #e7eaf040;
     /* box-shadow: 0 0 0.3em #00000050; */
 
-    border: none;
-
     /* centering */
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     transition: .3s ease;
+
+    border-color: var(--subject-clr0);
+    border-width: 0 0 0 10px;
 }
 
 .ListItem:hover {
     opacity: 1;
     background-color: #e7eaf0a1;
+    transform: scale(1.03);
 }
 
 .ErrorListItem {
@@ -87,12 +89,11 @@
     background-color: #ff2020a0;
 }
 
-.BookListItemStripe {
-    min-width: 10px;
-    position: relative;
+.BookListItemHeading {
     background-color: var(--subject-clr0);
-    margin-right: 0.5em;
+    padding: 0.3em;
     border-radius: 5px;
+    margin-top: 0;
 }
 
 .BookListItemImage {
@@ -102,8 +103,10 @@
 
 .BookListItemBlock {
     margin: 0.5em;
+    margin-top: 0.2em;
     padding: 0.5em;
     margin-left: 1em;
+    flex: 1;
 }
 
 .ListItemTitle {
