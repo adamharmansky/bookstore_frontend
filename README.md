@@ -52,6 +52,7 @@ Momentálne na [https://bookstore.harmansky.xyz](https://bookstore.harmansky.xyz
      - vyhľadávanie
    - :gear: zoznam kníh od autora
  - Prístup administrátora
+   - Prihlásenie, odhlásenie
    - Pridávanie kníh
    - Pridávanie autorov
    - :gear: Odstraňovanie kníh
