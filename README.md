@@ -11,7 +11,7 @@ Momentálne na [https://bookstore.harmansky.xyz](https://bookstore.harmansky.xyz
  - :speaking_head: treba prediskutovať a tak implementovať
  - :warning: treba implementovať
  - :gear: treba na tom popracovať
- - :man_construction_worker: pracuje sa na tom
+ - :construction_worker: pracuje sa na tom
 
 ### O čom stránka je
 
