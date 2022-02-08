@@ -12,7 +12,6 @@ export default function BookPage() {
 
     React.useEffect(() => {
         Axios.get(config.apiUrl + 'book/?book=' + window.location.pathname.match('[^/]*$')).then((data) => {
-            console.log(data)
             setBookData(data.data)
         })
     }, []);

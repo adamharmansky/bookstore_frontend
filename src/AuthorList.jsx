@@ -11,7 +11,6 @@ export default function AuthorList() {
     React.useEffect(() => {
         const url = new URL(window.location.href)
         Axios.get(config.apiUrl + 'author/list' + url.search).then((data) => {
-            console.log(data);
             setAuthorList(data.data.authors);
             setPageCount(data.data.pageCount);
         })

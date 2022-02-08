@@ -13,12 +13,10 @@ export default function BookList() {
     React.useEffect(() => {
         const url = new URL(window.location.href)
         Axios.get(config.apiUrl + 'list' + url.search + (url.search ? '&' : '?') + 'subject=' + window.location.pathname.match('[^/?]*$')).then((data) => {
-            console.log(data);
             setBookList(data.data.books);
             setPageCount(data.data.pageCount);
         })
         Axios.get(config.apiUrl + 'subject?subject=' + window.location.pathname.match('[^/]*$')).then((data) => {
-            console.log(data);
             setSubjectInfo(data.data);
         });
     }, []);

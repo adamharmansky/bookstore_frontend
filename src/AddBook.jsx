@@ -35,15 +35,12 @@ export default function AddBook() {
         validateSession();
 
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
-            console.log(data);
             setSubjectOptions(data.data);
         });
         Axios.get(config.apiUrl + 'author/short').then((data) => {
-            console.log(data);
             setAuthorOptions(data.data);
         });
         Axios.get(config.apiUrl + 'lang/short').then((data) => {
-            console.log(data);
             setLangOptions(data.data);
         });
     }, []);

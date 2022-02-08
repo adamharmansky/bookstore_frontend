@@ -10,7 +10,6 @@ export default function BookList() {
 
     React.useEffect(() => {
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
-            console.log(data);
             setSubjectList(data.data);
         })
     }, []);
