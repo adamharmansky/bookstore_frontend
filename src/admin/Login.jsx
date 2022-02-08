@@ -2,9 +2,9 @@ import React from "react";
 import Axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import './BookPage.css'
+import '../books/BookPage.css'
 
-const config = require("./config");
+const config = require("../config");
 
 export default function Login() {
     const [username, setUsername] = React.useState('');

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import './BookPage.css'
-import {validateSession, logout, getCookie} from './Utility';
+import '../books/BookPage.css'
+import {validateSession, logout, getCookie} from '../Utility';
 
 export default function Admin() {
     React.useEffect(() => {

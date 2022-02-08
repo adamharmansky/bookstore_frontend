@@ -2,9 +2,9 @@ import React from 'react'
 import Axios from 'axios'
 import './BookPage.css'
 import Button from "@material-ui/core/Button";
-import {minutesToReadableTime, getCookie} from './Utility'
+import {minutesToReadableTime, getCookie} from '../Utility'
 
-const config = require('./config')
+const config = require('../config')
 
 export default function BookPage() {
     const [bookData, setBookData] = React.useState([]);

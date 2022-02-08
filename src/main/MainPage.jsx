@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
 
-const config = require("./config");
+const config = require("../config");
 
 export default function BookList() {
 

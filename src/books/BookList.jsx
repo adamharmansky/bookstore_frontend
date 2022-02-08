@@ -1,8 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
-import {pageNumbers, bookList as listBooks} from './Utility';
+import {pageNumbers, bookList as listBooks} from '../Utility';
 
-const config = require("./config");
+const config = require("../config");
 
 export default function BookList() {
     var [bookList, setBookList] = React.useState([]);

@@ -7,10 +7,10 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import './BookPage.css'
-import {validateSession, getCookie} from './Utility';
+import '../books/BookPage.css'
+import {validateSession, getCookie} from '../Utility';
 
-const config = require("./config");
+const config = require("../config");
 
 export default function AddBook() {
     const [title, setTitle] = React.useState("");

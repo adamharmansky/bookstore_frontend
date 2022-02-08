@@ -1,9 +1,9 @@
 import React from 'react'
 import Axios from 'axios'
 import Button from "@material-ui/core/Button";
-import {bookList, getCookie} from './Utility'
+import {bookList, getCookie} from '../Utility'
 
-const config = require('./config')
+const config = require('../config')
 
 export default function AuthorPage() {
     const [authorData, setAuthorData] = React.useState({})
