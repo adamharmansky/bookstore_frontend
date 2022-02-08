@@ -149,15 +149,15 @@ h1 {
 
 .BoardsContainer {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
 }
 
 .Board {
-    --board-width: min(90vw, 600px);
-    width: var(--board-width);
-    height: calc(var(--board-width) * 0.5);
+    --board-width: min(90vw, 550px);
+    min-width: var(--board-width);
+    min-height: calc(var(--board-width) * 0.3);
     margin: 5%;
     padding: 5%;
     background-color: #0d6627;
@@ -189,4 +189,8 @@ h1 {
 
 .InfoLinksColumn {
     min-width: 20em;
+}
+
+.MainPageBody p {
+    text-align: center;
 }
