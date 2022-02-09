@@ -64,7 +64,7 @@ Momentálne na [https://bookstore.harmansky.xyz](https://bookstore.harmansky.xyz
    - :speaking_head: zatiaľ brainstorming
      - Naposledy pridaná kniha
      - Top knihy pod 10 hodín
-     - Náhodný úryvok
+     - Náhodný citát
    - :warning: Odkaz na stránku školy, logo školy
    - Odkaz na stránku administrátora
    - :speaking_head: Kontakt
