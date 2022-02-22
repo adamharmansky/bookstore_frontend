@@ -51,25 +51,28 @@ export default function AddBook() {
             return;
         }
         const formData = new FormData();
-        formData.append("image", image, image.name);
         formData.append("key", getCookie("session_key"));
-        Axios.post(config.apiUrl + "image/new", formData);
-        Axios.post(config.apiUrl + "book/new/", {
-            key: getCookie("session_key"),
-            title: title,
-            authors: authors,
-            desc: description,
-            content: content,
-            subject: subject.subject_id,
-            keywords: keywords,
-            read_time: parseInt(hours)*60 + parseInt(minutes),
-            pages: pageCount,
-            year_pub: yearPub,
-            lang: lang.lang_id,
-            isbn: isbn,
-            image: '/pub/' + image.name
+        formData.append("title",     title);
+        formData.append("authors",   authors);
+        formData.append("desc",      description);
+        formData.append("content",   content);
+        formData.append("subject",   subject.subject_id);
+        formData.append("keywords",  keywords);
+        formData.append("read_time", parseInt(hours)*60 + parseInt(minutes));
+        formData.append("pages",     pageCount);
+        formData.append("year_pub",  yearPub);
+        formData.append("lang",      lang.lang_id);
+        formData.append("isbn",      isbn);
+        formData.append("image", image, image.name);
+        Axios({
+          method: "post",
+          url: config.apiUrl + "book/new/",
+          data: formData,
+          headers: {"Content-Type": "multipart/form-data"}
         }).then((response) => {
             window.location.href = '/list';
+        }).catch((err)=> {
+            console.log(err);
         });
     }
 
