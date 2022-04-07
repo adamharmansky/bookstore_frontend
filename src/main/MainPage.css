@@ -2,8 +2,7 @@
 
 .MainPageContainer {
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2em auto 2em auto;
     padding: 0;
     background-color: white;
     border-radius: 8px
@@ -13,6 +12,12 @@
     .MainPageContainer {
         box-shadow: 0 0 1em #00000018;
         padding: 2%;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        margin: 0;
     }
 }
 
@@ -48,12 +53,20 @@ h1 {
    border-top: 4px solid #83502e;
 }
 
+@media (max-width: 800px) {
+    .Shelf, .HeadingShelf {
+        border-radius: 0;
+    }
+}
+
 .HeadingShelf {
    width: 100%;
 }
 
-.MainPageBody {
-    margin: 0 2%;
+@media (min-width: 800px) {
+    .MainPageBody {
+        margin: 0 2%;
+    }
 }
 
 .BookShelfTop {
@@ -62,6 +75,7 @@ h1 {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 .PlantPot {
@@ -80,10 +94,22 @@ h1 {
     margin-left: 1em;
 }
 
+@media (max-width: 600px) {
+    .PlantPot {
+        display: none;
+    }
+    .MainPageSubjects {
+        margin-left: -1em;
+    }
+    .BookShelfTop {
+        justify-content: center;
+    }
+}
+
 .SubjectBook {
-    --book-width: min(3vw, 30px);
-    --book-height: min(10vw, 100px);
-    --book-right: min(3vw, 30px);
+    --book-width: min(6vw, 30px);
+    --book-height: min(20vw, 100px);
+    --book-right: min(6vw, 30px);
 
     /* height: var(--book-height); */
     width: calc(var(--book-width) + var(--book-right));
@@ -184,6 +210,7 @@ h1 {
 
 .InfoLinksHeading {
     text-align: center;
+    color: white;
 }
 
 .InfoLinksContainer {
@@ -191,6 +218,11 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: #202020;
+    padding: 2em;
+    position: absolute;
+    left: 0;
+    width: 100vw;
 }
 
 .InfoLinksColumn {
@@ -199,4 +231,11 @@ h1 {
 
 .MainPageBody p {
     text-align: center;
+}
+
+
+@media (max-width: 800px) {
+    .App {
+        background: white;
+    }
 }

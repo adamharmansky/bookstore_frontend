@@ -130,6 +130,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    padding: 2em;
+    bacground-color: #202020;
 }
 
 .CurrentPageNumber {

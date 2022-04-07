@@ -27,35 +27,37 @@ export default function BookList() {
     });
 
     return (
-        <div className='MainPageContainer'>
-            <div className='MainPageHeading'>
-                <img className='BooksImage' src="/books.webp" alt="Chýbajúci obrázok"/>
-                <h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
+        <div className='MainPage'>
+            <div className='MainPageContainer'>
+                <div className='MainPageHeading'>
+                    <img className='BooksImage' src="/books.webp" alt="Chýbajúci obrázok"/>
+                    <h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
+                </div>
+                <div className='HeadingShelf'/>
+                <div className='MainPageBody'>
+                    <div className='BookShelfTop'>
+                        <div className='MainPageSubjects'> {subjects} </div>
+                        <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
+                    </div>
+                    <div className='Shelf'/>
+                    <div className='BoardsContainer'>
+                        <div className='Board'>Po: 10.30-10.45 a 13.30-14.30 <br/> Štv: 8.15-8.40 <br/> Pia: 10.30-10.40 </div>
+                        <div className='Board'>Sem pôjde instagram...</div>
+                    </div>
+                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
+                </div>
             </div>
-            <div className='HeadingShelf'/>
-            <div className='MainPageBody'>
-                <div className='BookShelfTop'>
-                    <div className='MainPageSubjects'> {subjects} </div>
-                    <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
+            <div className='InfoLinksContainer'>
+                <div className='InfoLinksColumn'>
+                    <h3 className='InfoLinksHeading'> Dôležité Odkazy </h3>
+                    <a className='InfoLink' href='https://www.gympos.sk' > Gymnázium Poštová 9 </a>
+                    <a className='InfoLink' href='/admin' > Vstup administrátora </a>
                 </div>
-                <div className='Shelf'/>
-                <div className='BoardsContainer'>
-                    <div className='Board'>Po: 10.30-10.45 a 13.30-14.30 <br/> Štv: 8.15-8.40 <br/> Pia: 10.30-10.40 </div>
-                    <div className='Board'>Sem pôjde instagram...</div>
-                </div>
-                <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
-                <div className='InfoLinksContainer'>
-                    <div className='InfoLinksColumn'>
-                        <h3 className='InfoLinksHeading'> Dôležité Odkazy </h3>
-                        <a className='InfoLink' href='https://www.gympos.sk' > Gymnázium Poštová 9 </a>
-                        <a className='InfoLink' href='/admin' > Vstup administrátora </a>
-                    </div>
-                    <div className='InfoLinksColumn'>
-                        <h3 className='InfoLinksHeading'> Autori </h3>
-                        <a className='InfoLink' href='https://www.harmansky.xyz' >Adam Harmanský</a>
-                        <a className='InfoLink' href='http://pavolkomlos.xyz/sk/index.html' >Pavol Komloš</a>
-                        <a className='InfoLink' href='https://github.com/adamharmansky/bookstore_frontend'>Kód stránky na Githube</a>
-                    </div>
+                <div className='InfoLinksColumn'>
+                    <h3 className='InfoLinksHeading'> Autori </h3>
+                    <a className='InfoLink' href='https://www.harmansky.xyz' >Adam Harmanský</a>
+                    <a className='InfoLink' href='http://pavolkomlos.xyz/sk/index.html' >Pavol Komloš</a>
+                    <a className='InfoLink' href='https://github.com/adamharmansky/bookstore_frontend'>Kód stránky na Githube</a>
                 </div>
             </div>
         </div>
