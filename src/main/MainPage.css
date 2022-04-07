@@ -9,7 +9,7 @@
     border-radius: 8px
 }
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     box-shadow: 0 0 1em #00000018;
     padding: 2%;
 }
