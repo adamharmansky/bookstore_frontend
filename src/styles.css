@@ -123,6 +123,9 @@
     .BookListItemDescription {
         display: none;
     }
+    .ListItem {
+        border-radius: 0;
+    }
 }
 
 .PageNumbers {
@@ -131,14 +134,17 @@
     flex-wrap: nowrap;
     justify-content: center;
     padding: 2em;
-    bacground-color: #202020;
+    background-color: #202020;
+    position: absolute;
+    left: 0;
+    width: 100vw;
 }
 
 .CurrentPageNumber {
     text-decoration: none;
     padding: 0.5em;
     margin: 0 0.1em 0 0.1em;
-    background-color: #dee1e6;
+    background-color: #808080;
     border-radius: 5px;
 }
 
@@ -146,7 +152,7 @@
     text-decoration: none;
     padding: 0.5em;
     margin: 0 0.1em 0 0.1em;
-    background-color: #dee1e6;
+    background-color: #303030;
     border-radius: 5px;
 }
 
