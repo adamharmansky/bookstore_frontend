@@ -9,9 +9,11 @@
     border-radius: 8px
 }
 
-@media (max-width: 800px) {
-    box-shadow: 0 0 1em #00000018;
-    padding: 2%;
+@media (min-width: 800px) {
+    .MainPageContainer {
+        box-shadow: 0 0 1em #00000018;
+        padding: 2%;
+    }
 }
 
 .MainPageHeading {
