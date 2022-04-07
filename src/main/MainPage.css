@@ -4,10 +4,14 @@
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    padding: 2%;
+    padding: 0;
     background-color: white;
-    box-shadow: 0 0 1em #00000018;
     border-radius: 8px
+}
+
+@media (min-width: 800px) {
+    box-shadow: 0 0 1em #00000018;
+    padding: 2%;
 }
 
 .MainPageHeading {
