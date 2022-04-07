@@ -29,14 +29,14 @@ export default function BookList() {
     return (
         <div className='MainPageContainer'>
             <div className='MainPageHeading'>
-                <img className='BooksImage' src="/books.png" alt="Chýbajúci obrázok"/>
+                <img className='BooksImage' src="/books.webp" alt="Chýbajúci obrázok"/>
                 <h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
             </div>
             <div className='HeadingShelf'/>
             <div className='MainPageBody'>
                 <div className='BookShelfTop'>
                     <div className='MainPageSubjects'> {subjects} </div>
-                    <img className='PlantPot' src="/plantpot.png" alt="ERROR" />
+                    <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
                 </div>
                 <div className='Shelf'/>
                 <div className='BoardsContainer'>
