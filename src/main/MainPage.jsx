@@ -53,7 +53,7 @@ export default function BookList() {
                     <div className='InfoLinksColumn'>
                         <h3 className='InfoLinksHeading'> Autori </h3>
                         <a className='InfoLink' href='https://www.harmansky.xyz' >Adam Harmanský</a>
-                        <a className='InfoLink' href='http://pavolkomlos.me/sk/index.html' >Pavol Komloš</a>
+                        <a className='InfoLink' href='http://pavolkomlos.xyz/sk/index.html' >Pavol Komloš</a>
                         <a className='InfoLink' href='https://github.com/adamharmansky/bookstore_frontend'>Kód stránky na Githube</a>
                     </div>
                 </div>
