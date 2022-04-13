@@ -25,6 +25,11 @@ export default function BookList() {
         const classNames = "SubjectBook "+(i===subjectList.length-1?"LastBook":"");
         return <a className={classNames} style={style} href={"/subject/"+subject.subject_id}>{subject.subject_name}</a> 
     });
+    
+    const half = Math.ceil(subjects.length/2);
+
+    const firstHalf = subjects.slice(0,half+1);
+    const secondHalf = subjects.slice(-half+1);
 
     return (
         <div className='MainPage'>
@@ -36,13 +41,16 @@ export default function BookList() {
                 <div className='HeadingShelf'/>
                 <div className='MainPageBody'>
                     <div className='BookShelfTop'>
-                        <div className='MainPageSubjects'> {subjects} </div>
+                        <div className='MainPageSubjects'> {firstHalf} </div>
+                    </div>
+                    <div className='Shelf'/>
+                    <div className='BookShelfTop'>
+                        <div className='MainPageSubjects'> {secondHalf} </div>
                         <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
                     </div>
                     <div className='Shelf'/>
                     <div className='BoardsContainer'>
                         <div className='Board'>Po: 10.30-10.45 a 13.30-14.30 <br/> Štv: 8.15-8.40 <br/> Pia: 10.30-10.40 </div>
-                        <div className='Board'>Sem pôjde instagram...</div>
                     </div>
                     <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
                 </div>

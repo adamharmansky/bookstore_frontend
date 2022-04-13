@@ -107,9 +107,9 @@ h1 {
 }
 
 .SubjectBook {
-    --book-width: min(6vw, 30px);
-    --book-height: min(20vw, 100px);
-    --book-right: min(6vw, 30px);
+    --book-width: min(10vw, 40px);
+    --book-height: min(24vw, 110px);
+    --book-right: min(8vw, 35px);
 
     /* height: var(--book-height); */
     width: calc(var(--book-width) + var(--book-right));
@@ -137,7 +137,7 @@ h1 {
 
 /* This book is on its left side */
 .LastBook {
-    --border-width: min(0.2vw, 2px);
+    --border-width: min(0.8vw, 2px);
 
     width: calc(var(--book-height) + var(--book-right));
     height: var(--book-width);
