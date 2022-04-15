@@ -35,7 +35,7 @@
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 55px;
     margin: 0;
     margin-left: 0.2em;
     margin-bottom: -1px;
@@ -63,7 +63,7 @@ h1 {
 
 .BookShelfTop {
     margin-top: min(2vw, 2em);
-    margin-left: 2vw;
+    margin-left: 1vw;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -78,6 +78,12 @@ h1 {
     z-index: 100;
 }
 
+@media (max-width: 900px) {
+    .PlantPot {
+        display: none;
+    }
+}
+
 .MainPageSubjects {
     display: flex;
     flex-wrap: nowrap;
@@ -88,9 +94,6 @@ h1 {
 }
 
 @media (max-width: 600px) {
-    .PlantPot {
-        display: none;
-    }
     .MainPageSubjects {
         margin-left: -1em;
     }
@@ -154,7 +157,7 @@ h1 {
 
 @media(max-width:700px) {
     .BookpointLogo { height: 72px; }
-    h1 { font-size: 42px; }
+    h1 { font-size: 40px; }
 }
 
 @media(max-width:500px) {
@@ -163,22 +166,19 @@ h1 {
     .Shelf { height: 2vw; }
 
     h1 {
-        font-size: 10vw;
+        font-size: 9vw;
         margin-left: 0;
     }
 }
 
 .OpeningHours {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 20px;
     font-family: var(--ff-secondary);
 }
 
 @media (max-width: 580px) {
-    .OpeningHours {
-        justify-content: space-around;
-    }
     .OpeningHours .oh {
         display: none
     }
