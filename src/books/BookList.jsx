@@ -26,6 +26,15 @@ export default function BookList() {
     
     var menuOpen = Boolean(anchorEl);
     
+    function create_url(page) {
+        let params = [];
+        if (page) params.push('page=' + page);
+        params.push('order_by=' + orderBy);
+        params.push('reverse=' + reverse);
+        if (search) params.push('q=' + search);
+        return "/list/?" + params.join('&');
+    }
+
     function updateList() {
         const url = create_url(page);
         window.history.pushState("", "", url)
@@ -42,20 +51,11 @@ export default function BookList() {
         setOrderBy(params.has("order_by") ? params.get("order_by") : "year_pub");
         setPage (params.has("page") ? params.get("page") : 0);
         updateList();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
-    React.useEffect(() => {
-        updateList();
-    }, [orderBy, reverse, search]);
-
-    function create_url(page) {
-        let params = [];
-        if (page) params.push('page=' + page);
-        params.push('order_by=' + orderBy);
-        params.push('reverse=' + reverse);
-        if (search) params.push('q=' + search);
-        return "/list/?" + params.join('&');
-    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    React.useEffect(updateList, [orderBy, reverse, search]);
 
     return (
         <div>
