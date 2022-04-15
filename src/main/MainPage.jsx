@@ -1,7 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
-// import Carousel from 'nuka-carousel';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 const config = require("../config");
 
@@ -32,35 +33,65 @@ export default function BookList() {
     const firstHalf = subjects.slice(0,half+1);
     const secondHalf = subjects.slice(-half+1);
     
-    const hoursWidth = window.matchMedia("(min-width: 580px)").matches;
     // const booksWidth = window.matchMedia("(min-width: 900px)").matches;
 
     return (
         <div className='MainPage'>
             <div className='MainPageContainer'>
+
                 <div className='MainPageHeading'>
                     <img className='BookpointLogo' src="/bookpoint.svg" alt="Chýbajúci obrázok"/>
                     <h1>GYMPOS <br/> <b>BOOKPOINT</b></h1>
                 </div>
+
                 <div className='MainPageBody'>
+
                     <div className='BookShelfTop'>
                         <div className='MainPageSubjects'> {firstHalf} </div>
                     </div>
                     <div className='Shelf'/>
+
                     <div className='BookShelfTop'>
                         <div className='MainPageSubjects'> {secondHalf} </div>
-                        <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
+                        <img className='PlantPot' src="/plantpot.webp" alt="" />
                     </div>
                     <div className='Shelf'/>
+
                     <div className='OpeningHours'>
-                        {(hoursWidth) ? <div><b>Otváracie hodiny</b></div> : null}
+                        <div className="oh"><b>Otváracie hodiny</b></div>
                         <div><b>Po:</b> 10:30-45 a 13:30-14:30</div>                        
                         <div><b>Štv:</b> 8:15-40</div>                        
                         <div><b>Pia:</b> 10:30-40</div>                    
                     </div>
+
+                    <hr/>
+
+                    <Splide hasTrack={false} options={
+                        {
+                            type: 'loop',
+                            heightRatio: 0.58,
+                            autoWidth: true,
+                            pagination: false
+                        }
+                    }>
+                        <SplideTrack>
+                           <SplideSlide><img src="https://picsum.photos/id/1018/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1015/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1019/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1016/1000/600/" alt=""/></SplideSlide> 
+                        </SplideTrack>
+                    </Splide>
+
+                    <hr/>
+
+                    {/* instagram */}
+
+                    <hr/>
+
                     <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
                 </div>
             </div>
+
             <div className='InfoLinksContainer'>
                 <div className='InfoLinksColumn'>
                     <h3 className='InfoLinksHeading'> Dôležité Odkazy </h3>
@@ -74,6 +105,7 @@ export default function BookList() {
                     <a className='InfoLink' href='https://github.com/adamharmansky/bookstore_frontend'>Kód stránky na Githube</a>
                 </div>
             </div>
+
         </div>
     );
 }

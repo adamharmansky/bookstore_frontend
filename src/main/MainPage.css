@@ -179,10 +179,15 @@ h1 {
     .OpeningHours {
         justify-content: space-around;
     }
+    .OpeningHours .oh {
+        display: none
+    }
 }
 
-.slider-container {
-    margin: 30px 0 30px 0;
+.splide__slide img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 .InfoLink {
