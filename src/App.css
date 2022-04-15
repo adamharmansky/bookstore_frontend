@@ -67,6 +67,12 @@ h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
+hr { 
+    width: 93%;
+    border: 1px solid #e7e7e7;
+    margin-top: 20px;
+    margin-bottom: 20px
+}
 
 
 /* Main styling */

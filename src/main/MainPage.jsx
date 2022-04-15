@@ -1,6 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 const config = require("../config");
 
@@ -25,28 +27,69 @@ export default function BookList() {
         const classNames = "SubjectBook "+(i===subjectList.length-1?"LastBook":"");
         return <a className={classNames} style={style} href={"/subject/"+subject.subject_id}>{subject.subject_name}</a> 
     });
+    
+    const half = Math.ceil(subjects.length/2);
+
+    const firstHalf = subjects.slice(0,half+1);
+    const secondHalf = subjects.slice(-half+1);
+    
+    // const booksWidth = window.matchMedia("(min-width: 900px)").matches;
 
     return (
         <div className='MainPage'>
             <div className='MainPageContainer'>
+
                 <div className='MainPageHeading'>
-                    <img className='BooksImage' src="/books.webp" alt="Chýbajúci obrázok"/>
-                    <h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
+                    <img className='BookpointLogo' src="/bookpoint.svg" alt="Chýbajúci obrázok"/>
+                    <h1>GYMPOS <br/> <b>BOOKPOINT</b></h1>
                 </div>
-                <div className='HeadingShelf'/>
+
                 <div className='MainPageBody'>
+
                     <div className='BookShelfTop'>
-                        <div className='MainPageSubjects'> {subjects} </div>
-                        <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
+                        <div className='MainPageSubjects'> {firstHalf} </div>
                     </div>
                     <div className='Shelf'/>
-                    <div className='BoardsContainer'>
-                        <div className='Board'>Po: 10.30-10.45 a 13.30-14.30 <br/> Štv: 8.15-8.40 <br/> Pia: 10.30-10.40 </div>
-                        <div className='Board'>Sem pôjde instagram...</div>
+
+                    <div className='BookShelfTop'>
+                        <div className='MainPageSubjects'> {secondHalf} </div>
+                        <img className='PlantPot' src="/plantpot.webp" alt="" />
                     </div>
+                    <div className='Shelf'/>
+
+                    <div className='OpeningHours'>
+                        <div className="oh"><b>Otváracie hodiny</b></div>
+                        <div><b>Po:</b> 10:30-45 a 13:30-14:30</div>                        
+                        <div><b>Štv:</b> 8:15-40</div>                        
+                        <div><b>Pia:</b> 10:30-40</div>                    
+                    </div>
+
+                    <hr/>
+
+                    <Splide hasTrack={false} options={
+                        {
+                            type: 'loop',
+                            heightRatio: 0.602,
+                            autoWidth: true,
+                            pagination: false, 
+                            padding: '6%',
+                            gap: '2%'
+                        }
+                    }>
+                        <SplideTrack>
+                           <SplideSlide><img src="https://picsum.photos/id/1018/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1015/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1019/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="https://picsum.photos/id/1016/1000/600/" alt=""/></SplideSlide> 
+                        </SplideTrack>
+                    </Splide>
+        
+                    <hr/>
+
                     <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
                 </div>
             </div>
+
             <div className='InfoLinksContainer'>
                 <div className='InfoLinksColumn'>
                     <h3 className='InfoLinksHeading'> Dôležité Odkazy </h3>
@@ -60,6 +103,7 @@ export default function BookList() {
                     <a className='InfoLink' href='https://github.com/adamharmansky/bookstore_frontend'>Kód stránky na Githube</a>
                 </div>
             </div>
+
         </div>
     );
 }

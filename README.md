@@ -32,7 +32,6 @@ Momentálne na [https://bookstore.harmansky.xyz](https://bookstore.harmansky.xyz
        - vydania
        - pridania
      - podľa názvu
-   - :speaking_head: **TAKISTO POTREBUJEME OBSAH NEVIEM ČI SI MYSLIA ŽE 27 KNÍH JE REPREZENTATÍVNE MNOŽSTVO ALEBO ČO**
    - Vlatnosti kníh
      - Názov
      - Autor(i)

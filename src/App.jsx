@@ -18,6 +18,7 @@ function App() {
         <div className='App'>
             <div className='NavBar'>
                 <a className='NavBarButton' href='/'> Domov </a>
+                <a className='NavBarButton' href='/about'> O nás </a>
                 <a className='NavBarButton' href='/list'> Zoznam kníh </a>
                 <a className='NavBarButton' href='/authors'> Zoznam autorov </a>
                 {getCookie('session_key') ? <a className='NavBarButton' href='/admin'> Prihlásený ako {getCookie('username')} </a> : []}
