@@ -33,7 +33,7 @@ export default function BookList() {
     const firstHalf = subjects.slice(0,half+1);
     const secondHalf = subjects.slice(-half+1);
     
-    // const booksWidth = window.matchMedia("(min-width: 900px)").matches;
+    const isMobile = window.matchMedia("(max-width: 650px)").matches;
 
     return (
         <div className='MainPage'>
@@ -46,22 +46,40 @@ export default function BookList() {
 
                 <div className='MainPageBody'>
 
-                    <div className='BookShelfTop'>
-                        <div className='MainPageSubjects'> {firstHalf} </div>
-                    </div>
-                    <div className='Shelf'/>
+                    {
+                        isMobile ?
+                        (
+                            <div className="Books">
+                                <div className='BookShelfTop'>
+                                    <div className='MainPageSubjects'> {firstHalf} </div>
+                                    <img className='PlantPot' src="/plantpot.png" alt="" />
+                                </div>
+                                <div className='Shelf'/>
 
-                    <div className='BookShelfTop'>
-                        <div className='MainPageSubjects'> {secondHalf} </div>
-                        <img className='PlantPot' src="/plantpot.webp" alt="" />
-                    </div>
-                    <div className='Shelf'/>
+                                <div className='BookShelfTop'>
+                                    <div className='MainPageSubjects'> {secondHalf} </div>
+                                </div>
+                                <div className='Shelf'/>
+                            </div>
+                        )
+                        :
+                        (
+                            <div className="Books">
+                                <div className='BookShelfTop'>
+                                    <div className='MainPageSubjects'> {subjects} </div>
+                                    <img className='PlantPot' src="/plantpot.png" alt="" />
+                                </div>
+                                <div className='Shelf'/>
+                            </div>
+                        )
+                    }
 
                     <div className='OpeningHours'>
                         <div className="oh"><b>Otváracie hodiny</b></div>
-                        <div><b>Po:</b> 10:30-45 a 13:30-14:30</div>                        
-                        <div><b>Štv:</b> 8:15-40</div>                        
-                        <div><b>Pia:</b> 10:30-40</div>                    
+                        <div className="oh">|</div>
+                        <div><b>Po:</b> 10:30-10:45 a 13:30-14:30</div>                        
+                        <div><b>Štv:</b> 8:15-8:40</div>                        
+                        <div><b>Pia:</b> 10:30-10:40</div>                    
                     </div>
 
                     <hr/>
@@ -69,24 +87,25 @@ export default function BookList() {
                     <Splide hasTrack={false} options={
                         {
                             type: 'loop',
-                            heightRatio: 0.602,
+                            heightRatio: 0.615,
                             autoWidth: true,
                             pagination: false, 
                             padding: '6%',
-                            gap: '2%'
+                            gap: '2%',
+                            autoplay: true,
+                            interval: 9000
                         }
                     }>
                         <SplideTrack>
-                           <SplideSlide><img src="https://picsum.photos/id/1018/1000/600/" alt=""/></SplideSlide> 
-                           <SplideSlide><img src="https://picsum.photos/id/1015/1000/600/" alt=""/></SplideSlide> 
-                           <SplideSlide><img src="https://picsum.photos/id/1019/1000/600/" alt=""/></SplideSlide> 
-                           <SplideSlide><img src="https://picsum.photos/id/1016/1000/600/" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="/recenzia_1.jpg" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="/recenzia_2.jpg" alt=""/></SplideSlide> 
+                           <SplideSlide><img src="/recenzia_3.jpg" alt=""/></SplideSlide> 
                         </SplideTrack>
                     </Splide>
         
                     <hr/>
 
-                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
+                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>prof. Štroncerovú</a>.</p>       
                 </div>
             </div>
 
