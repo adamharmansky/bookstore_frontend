@@ -2,7 +2,7 @@
 
 .MainPageContainer {
     max-width: 900px;
-    margin: 2em auto 2em auto;
+    margin: 1em auto 2em auto;
     padding: 0;
     background-color: white;
     border-radius: 8px
@@ -24,12 +24,12 @@
 .MainPageHeading {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 
-.BooksImage {
-    height: 60px;
+.BookpointLogo {
+    height: 95px;
     margin-left: 5px;
     margin-bottom: -3px;
 }
@@ -41,12 +41,7 @@ h1 {
     margin-bottom: -1px;
 }
 
-.GymposGreen {
-    color: #1e7813;
-}
-
-.Shelf,
-.HeadingShelf {
+.Shelf {
    height: min(2vw, 10px);
    border-radius: 2px;
    background-color: #96613d;
@@ -54,14 +49,11 @@ h1 {
 }
 
 @media (max-width: 800px) {
-    .Shelf, .HeadingShelf {
+    .Shelf {
         border-radius: 0;
     }
 }
 
-.HeadingShelf {
-   width: 100%;
-}
 
 @media (min-width: 800px) {
     .MainPageBody {
@@ -71,6 +63,7 @@ h1 {
 
 .BookShelfTop {
     margin-top: min(2vw, 2em);
+    margin-left: 2vw;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -148,10 +141,6 @@ h1 {
     padding: 0;
 }
 
-/* .LastBook:hover {
-    transform: translateX(calc(var(--book-height) * 0.2));
-} */
-
 .LastBook::after {
     content: "";
     background-color: bisque;
@@ -159,18 +148,18 @@ h1 {
     height: calc(var(--book-width) - 2 * var(--border-width));
     width: calc(var(--book-right) + 1px);
     border-radius: 3px 0 0 3px;
-    margin-left: var(--book-right);
+    margin-left: calc(0.5 * var(--book-height) - 0.5 * var(--book-right) - 8px);
 }
 
 
 @media(max-width:700px) {
-    .BooksImage { height: 42px; }
+    .BookpointLogo { height: 72px; }
     h1 { font-size: 42px; }
 }
 
 @media(max-width:500px) {
     .MainPageHeading { justify-content: center; }
-    .BooksImage { display: none; }
+    .BookpointLogo { display: none; }
     .Shelf { height: 2vw; }
 
     h1 {
@@ -179,26 +168,17 @@ h1 {
     }
 }
 
-.BoardsContainer {
+.OpeningHours {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-between;
+    margin: 20px;
+    font-family: var(--ff-secondary);
 }
 
-.Board {
-    --board-width: min(90vw, 550px);
-    min-width: var(--board-width);
-    min-height: calc(var(--board-width) * 0.3);
-    margin: 5%;
-    padding: 5%;
-    background-color: #0d6627;
-    border: 8px solid #704528;
-    border-radius: 3px;
-    text-align: center;
-    color: white;
-    font-family: 'Syne Tactile', sans-serif;
-    font-size: 2rem;
+@media (max-width: 580px) {
+    .OpeningHours {
+        justify-content: space-around;
+    }
 }
 
 .InfoLink {

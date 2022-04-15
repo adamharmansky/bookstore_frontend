@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
+import Carousel from 'nuka-carousel';
 
 const config = require("../config");
 
@@ -30,15 +31,17 @@ export default function BookList() {
 
     const firstHalf = subjects.slice(0,half+1);
     const secondHalf = subjects.slice(-half+1);
+    
+    const hoursWidth = window.matchMedia("(min-width: 580px)").matches;
+    const booksWidth = window.matchMedia("(min-width: 900px)").matches;
 
     return (
         <div className='MainPage'>
             <div className='MainPageContainer'>
                 <div className='MainPageHeading'>
-                    <img className='BooksImage' src="/books.webp" alt="Chýbajúci obrázok"/>
-                    <h1><font className='GymposGreen'>GYMPOS</font> Knižnica</h1>
+                    <img className='BookpointLogo' src="/bookpoint.svg" alt="Chýbajúci obrázok"/>
+                    <h1>GYMPOS <br/> <b>BOOKPOINT</b></h1>
                 </div>
-                <div className='HeadingShelf'/>
                 <div className='MainPageBody'>
                     <div className='BookShelfTop'>
                         <div className='MainPageSubjects'> {firstHalf} </div>
@@ -49,8 +52,11 @@ export default function BookList() {
                         <img className='PlantPot' src="/plantpot.webp" alt="ERROR" />
                     </div>
                     <div className='Shelf'/>
-                    <div className='BoardsContainer'>
-                        <div className='Board'>Po: 10.30-10.45 a 13.30-14.30 <br/> Štv: 8.15-8.40 <br/> Pia: 10.30-10.40 </div>
+                    <div className='OpeningHours'>
+                        {(hoursWidth) ? <div><b>Otváracie hodiny</b></div> : null}
+                        <div><b>Po:</b> 10:30-45 a 13:30-14:30</div>                        
+                        <div><b>Štv:</b> 8:15-40</div>                        
+                        <div><b>Pia:</b> 10:30-40</div>                    
                     </div>
                     <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
                 </div>
