@@ -11,7 +11,7 @@ import ArrowDownward from '@mui/icons-material/ArrowDownward';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import MenuIcon from '@mui/icons-material/Menu';
-import Select, {SelectChageEvent} from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 const config = require("../config");
 
