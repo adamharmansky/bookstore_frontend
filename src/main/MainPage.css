@@ -181,6 +181,10 @@ h1 {
     }
 }
 
+.slider-container {
+    margin: 30px 0 30px 0;
+}
+
 .InfoLink {
     list-style: none;
     text-align: center;

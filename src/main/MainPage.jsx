@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
-import Carousel from 'nuka-carousel';
+// import Carousel from 'nuka-carousel';
 
 const config = require("../config");
 
@@ -33,7 +33,7 @@ export default function BookList() {
     const secondHalf = subjects.slice(-half+1);
     
     const hoursWidth = window.matchMedia("(min-width: 580px)").matches;
-    const booksWidth = window.matchMedia("(min-width: 900px)").matches;
+    // const booksWidth = window.matchMedia("(min-width: 900px)").matches;
 
     return (
         <div className='MainPage'>
