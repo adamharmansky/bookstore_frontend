@@ -186,7 +186,6 @@ h1 {
 
 .splide__slide img {
     height: 100%;
-    width: auto;
     object-fit: contain;
 }
 

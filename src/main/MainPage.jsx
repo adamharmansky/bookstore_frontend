@@ -69,9 +69,11 @@ export default function BookList() {
                     <Splide hasTrack={false} options={
                         {
                             type: 'loop',
-                            heightRatio: 0.58,
+                            heightRatio: 0.602,
                             autoWidth: true,
-                            pagination: false
+                            pagination: false, 
+                            padding: '6%',
+                            gap: '2%'
                         }
                     }>
                         <SplideTrack>
@@ -81,11 +83,7 @@ export default function BookList() {
                            <SplideSlide><img src="https://picsum.photos/id/1016/1000/600/" alt=""/></SplideSlide> 
                         </SplideTrack>
                     </Splide>
-
-                    <hr/>
-
-                    {/* instagram */}
-
+        
                     <hr/>
 
                     <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a> </p>       
