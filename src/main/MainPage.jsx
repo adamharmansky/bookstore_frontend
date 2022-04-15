@@ -40,7 +40,7 @@ export default function BookList() {
             <div className='MainPageContainer'>
 
                 <div className='MainPageHeading'>
-                    <img className='BookpointLogo' src="/bookpoint.svg" alt="Chýbajúci obrázok"/>
+                    <img className='BookpointLogo' src="/bookpoint.png" alt="Chýbajúci obrázok"/>
                     <h1>GYMPOS <br/> <b>BOOKPOINT</b></h1>
                 </div>
 
