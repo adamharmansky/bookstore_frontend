@@ -86,10 +86,6 @@ hr {
     font-family: var(--ff-secondary);
 }
 
-@media (min-width: 800px) {
-    box-shadow: 0 0 1em #00000080;
-}
-
 .NavBarButton {
     padding: 1em 0.5em 1em 0.5em;
     text-decoration: none;
