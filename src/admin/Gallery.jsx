@@ -19,7 +19,7 @@ export default function GalleryEditor() {
   
   function deleteItem(item) {
     if (window.confirm("chcete vymazať položku " + item + "?")) {
-      Axios.delete(config.apiUrl + 'gallery/' + item);
+      Axios.delete(config.apiUrl + 'gallery?id=' + item);
       setPictureList(pictureList.filter(picture=>(picture.picture_id !== item)));
     }
   }
