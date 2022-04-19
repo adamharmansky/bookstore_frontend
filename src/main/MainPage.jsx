@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './MainPage.css';
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const config = require("../config");

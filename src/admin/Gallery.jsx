@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from 'axios';
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import Button from "@material-ui/core/Button";
 import '@splidejs/react-splide/css';
 import {getCookie} from '../Utility';
