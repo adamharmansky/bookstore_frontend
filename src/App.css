@@ -110,3 +110,29 @@ main {
     flex-grow: 1;
     margin: min(2.5%, 2em);
 }
+
+.InfoLink {
+    list-style: none;
+    text-align: center;
+    font-size: 1rem;
+    display: block;
+}
+
+.InfoLinksHeading {
+    text-align: center;
+    color: white;
+}
+
+.InfoLinksContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #202020;
+    padding: 2em;
+    width: 100vw;
+}
+
+.InfoLinksColumn {
+    min-width: 20em;
+}

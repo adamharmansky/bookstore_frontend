@@ -187,33 +187,6 @@
     object-fit: contain;
 }
 
-.InfoLink {
-    list-style: none;
-    text-align: center;
-    font-size: 1rem;
-    display: block;
-}
-
-.InfoLinksHeading {
-    text-align: center;
-    color: white;
-}
-
-.InfoLinksContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: #202020;
-    padding: 2em;
-    position: absolute;
-    left: 0;
-    width: 100vw;
-}
-
-.InfoLinksColumn {
-    min-width: 20em;
-}
 
 .MainPageBody p {
     text-align: center;
