@@ -10,15 +10,11 @@ const config = require("../config");
 export default function GalleryEditor() {
   const [pictureList, setPictureList] = React.useState([]);
 
-  function updatePictureList() {
+  React.useEffect(() => {
     Axios.get(config.apiUrl + 'gallery').then((data) => {
       setPictureList(data.data);
       console.log(data.data);
     });
-  }
-
-  React.useEffect(() => {
-    updatePictureList();
   }, []);
   
   function deleteItem(item) {
@@ -61,7 +57,7 @@ export default function GalleryEditor() {
           }).catch((err)=> {
               console.log(err);
           });
-          updatePictureList();
+          window.location.reload(true);
         }
       }}/> </Button>
     </div>
