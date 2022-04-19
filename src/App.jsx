@@ -4,6 +4,7 @@ import './App.css'
 import './styles.css'
 import BookList from './books/BookList'
 import MainPage from './main/MainPage'
+import AboutPage from './main/AboutPage'
 import BookPage from './books/BookPage'
 import AuthorPage from './authors/AuthorPage'
 import AddBook from './admin/AddBook'
@@ -29,6 +30,7 @@ function App() {
                 <Router>
                     <Routes>
                         <Route path='/' element={<MainPage />} />
+                        <Route path='/about' element={<AboutPage />} />
                         <Route path='/list' element={<BookList />} />
                         <Route path='/book/*' element={<BookPage />} />
                         <Route path='/authors' element={<AuthorList />} />
