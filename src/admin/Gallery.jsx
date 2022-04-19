@@ -7,8 +7,7 @@ import '@splidejs/react-splide/css';
 const config = require("../config");
 
 export default function GalleryEditor() {
-  var [pictuteList, setPictureList] = React.useState([]);
-  var [createMenuVisible, activateCreateMenu] = React.useState([]);
+  const [pictuteList, setPictureList] = React.useState([]);
 
   React.useEffect(() => {
     Axios.get(config.apiUrl + 'gallery').then((data) => {
@@ -18,7 +17,10 @@ export default function GalleryEditor() {
   }, []);
   
   function deleteItem(item) {
-    console.log(item);
+    if (window.confirm("chcete vymazať položku " + item + "?")) {
+      Axios.delete(config.apiUrl + 'gallery/' + item);
+      setPictureList(pictuteList.filter(picture=>(picture.picture_id === item)));
+    }
   }
 
   return (<div className="GalleryEditor">
@@ -37,11 +39,25 @@ export default function GalleryEditor() {
             }
         }>
             <SplideTrack>
-                {pictuteList.map((p) => <SplideSlide><img src={p.picture_path} alt=""/><Button fullWidth onClick={()=>{deleteItem(p.picture_id)}}> Vymazať </Button></SplideSlide>)}
+                {pictuteList.map((p) => <SplideSlide><img src={p.picture_path} onClick={()=>{deleteItem(p.picture_id)}} alt="bruuuuuuuuuuuuh" style={{cursor: "pointer"}}/> </SplideSlide>)}
             </SplideTrack>
         </Splide>
-      <Button fullWidth onClick={()=>{activateCreateMenu(true)}}> Pridať </Button>
-      {createMenuVisible ? <div> </div> : null}
+      <Button component='label'> Nahrať Obrázok <input type='file' hidden onChange={(e)=>{
+        if (e.target.files[0]) {
+          const formData = new FormData();
+          formData.append("image", e.target.files[0], e.target.files[0].name);
+          Axios({
+            method: "post",
+            url: config.apiUrl + "book/new/",
+            data: formData,
+            headers: {"Content-Type": "multipart/form-data"}
+          }).then((response) => {
+              window.location.href = '/list';
+          }).catch((err)=> {
+              console.log(err);
+          });
+        }
+      }}/> </Button>
     </div>
   </div>);
 }
