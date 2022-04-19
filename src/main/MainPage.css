@@ -29,13 +29,13 @@
 }
 
 .BookpointLogo {
-    height: 95px;
+    width: min(150px, 22vw);
     margin-left: 5px;
     margin-bottom: -3px;
 }
 
 .MainPageHeading h1 {
-    font-size: 55px;
+    font-size: min(55px, 8vw);
     margin: 10px;
 }
 
@@ -46,11 +46,8 @@
    border-top: 4px solid #83502e;
 }
 
-@media (max-width: 800px) {
-    .Shelf {
-        border-radius: 0;
-    }
-}
+@media (max-width: 800px) { .Shelf { border-radius: 0; } }
+@media(max-width:500px) { .Shelf { height: 2vw; } }
 
 
 @media (min-width: 800px) {
@@ -152,23 +149,6 @@
     margin-left: calc(0.5 * var(--book-height) - 0.5 * var(--book-right) - 8px);
 }
 
-
-@media(max-width:700px) {
-    .BookpointLogo { height: 72px; }
-    h1 { font-size: 40px; }
-}
-
-@media(max-width:500px) {
-    .MainPageHeading { justify-content: center; }
-    .BookpointLogo { display: none; }
-    .Shelf { height: 2vw; }
-
-    h1 {
-        font-size: 9vw;
-        margin-left: 0;
-    }
-}
-
 .OpeningHours {
     display: flex;
     justify-content: space-around;
@@ -190,6 +170,7 @@
 
 .MainPageBody p {
     text-align: center;
+    padding: min(4.0vw, 1rem);
 }
 
 
