@@ -37,7 +37,7 @@ export default function BookList() {
     const secondHalf = subjects.slice(-half+1);
     
     const isMobile = window.matchMedia("(max-width: 650px)").matches;
-
+    
     return (
         <div className='MainPage'>
             <div className='MainPageContainer'>
@@ -87,21 +87,22 @@ export default function BookList() {
 
                     <hr/>
 
-                    <Splide hasTrack={false} options={
-                        {
+                    <Splide options={{
                             type: 'loop',
                             heightRatio: 0.615,
-                            autoWidth: true,
                             pagination: false, 
-                            padding: '6%',
-                            gap: '2%',
+                            padding: '7%',
+                            gap: '1.8%',
                             autoplay: true,
-                            interval: 9000
-                        }
-                    }>
-                        <SplideTrack>
-                            {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})}
-                        </SplideTrack>
+                            interval: 9000,
+                            perPage: 1,
+                            focus: 'center',
+
+                    }}>
+                        <SplideSlide><img src="/recenzia_1.jpg" alt=""/></SplideSlide> 
+                        <SplideSlide><img src="/recenzia_2.jpg" alt=""/></SplideSlide> 
+                        <SplideSlide><img src="/recenzia_3.jpg" alt=""/></SplideSlide> 
+                        {/* {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})} */}
                     </Splide>
         
                     <hr/>
