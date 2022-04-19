@@ -115,6 +115,7 @@ export default function BookList() {
                 <div className='InfoLinksColumn'>
                     <h3 className='InfoLinksHeading'> Dôležité Odkazy </h3>
                     <a className='InfoLink' href='https://www.gympos.sk' > Gymnázium Poštová 9 </a>
+                    <a className='InfoLink' href='https://www.instagram.com/gympos_bookpoint' > Bookpoint Instagram </a>
                     <a className='InfoLink' href='/admin' > Vstup administrátora </a>
                 </div>
                 <div className='InfoLinksColumn'>
