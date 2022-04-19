@@ -7,15 +7,18 @@ import '@splidejs/react-splide/css';
 const config = require("../config");
 
 export default function BookList() {
-
     var [subjectList, setSubjectList] = React.useState([]);
+    var [pictuteList, setPictureList] = React.useState([]);
 
     React.useEffect(() => {
         Axios.get(config.apiUrl + 'subject/list').then((data) => {
             setSubjectList(data.data);
-        })
+        });
+        Axios.get(config.apiUrl + 'gallery').then((data) => {
+            setPictureList(data.data);
+        });
     }, []);
-
+    
     let subjects = subjectList.map((subject, i) => { 
         const style = {
             "--subject-clr0": subject.subject_color0,
@@ -97,9 +100,7 @@ export default function BookList() {
                         }
                     }>
                         <SplideTrack>
-                           <SplideSlide><img src="/recenzia_1.jpg" alt=""/></SplideSlide> 
-                           <SplideSlide><img src="/recenzia_2.jpg" alt=""/></SplideSlide> 
-                           <SplideSlide><img src="/recenzia_3.jpg" alt=""/></SplideSlide> 
+                            {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})}
                         </SplideTrack>
                     </Splide>
         

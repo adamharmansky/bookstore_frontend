@@ -15,6 +15,7 @@ export default function Admin() {
                 <div className='AdminOptionContainer'>
                     <h2> {"Prihlásený ako " + getCookie('username')} </h2>
                     <Button fullWidth onClick={()=>(window.location = '/add')}> Pridať knihu </Button>
+                    <Button fullWidth onClick={()=>{window.location = '/gallery'}}> Upraviť galériu </Button>
                     <Button fullWidth onClick={logout}> Odhlásiť </Button>
                 </div>
             :
