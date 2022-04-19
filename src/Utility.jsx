@@ -44,6 +44,7 @@ export function bookList(books) {
 
 export function pageNumbers(current_page, page_count, page_link) {
     let numbers = [];
+    current_page = parseInt(current_page);
     if (current_page > 0) numbers.push(<a className='PageNumber' href={page_link(current_page-1)}>{"<<"}</a>);
     for (let i = 0; i < page_count; i++) {
         numbers.push(i === current_page ? <span className='CurrentPageNumber'>{i+1}</span> : <a className='PageNumber' href={page_link(i)}>{i+1}</a>);

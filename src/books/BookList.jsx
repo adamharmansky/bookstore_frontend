@@ -50,7 +50,6 @@ export default function BookList() {
         setReverse(params.has("reverse") ? Boolean(params.get("reverse")) : false);
         setOrderBy(params.has("order_by") ? params.get("order_by") : "year_pub");
         setPage (params.has("page") ? params.get("page") : 0);
-        updateList();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
@@ -60,9 +59,6 @@ export default function BookList() {
     return (
         <div>
             <h1 className='PageHeading'> Knihy </h1>
-            {/* <form className='SearchForm' name="search_form">
-                    <input name="q" type="text" placeholder="Zadajte názov knihy..." defaultValue={search}/>
-            </form> */}
             <div className="SearchControls">
                 <FormControl fullWidth style={{"maxWidth": "50em"}}>
                     <TextField
