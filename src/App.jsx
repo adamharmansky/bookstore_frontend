@@ -12,6 +12,7 @@ import AuthorList from './authors/AuthorList'
 import SubjectPage from './books/SubjectPage'
 import Login from './admin/Login'
 import Admin from './admin/Admin'
+import GalleryEditor from './admin/Gallery'
 import {getCookie} from './Utility';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                         <Route path='/add' element={<AddBook />} />
                         <Route path='/admin' element={<Admin />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/gallery' element={<GalleryEditor />} />
                     </Routes>
                 </Router>
             </main>
