@@ -34,11 +34,9 @@
     margin-bottom: -3px;
 }
 
-h1 {
+.MainPageHeading h1 {
     font-size: 55px;
-    margin: 0;
-    margin-left: 0.2em;
-    margin-bottom: -1px;
+    margin: 10px;
 }
 
 .Shelf {

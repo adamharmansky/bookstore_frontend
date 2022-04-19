@@ -117,10 +117,10 @@ export default function BookList() {
                     </MenuItem>
                     <MenuItem>
                         <ToggleButtonGroup exclusive style={{margin: "auto"}} value={reverse} onChange={(e, x)=>{if (x!=null) {setReverse(x)}}}>
-                            <ToggleButton value={true}>
+                            <ToggleButton value={false}>
                                 <ArrowDownward />
                             </ToggleButton>
-                            <ToggleButton value={false}>
+                            <ToggleButton value={true}>
                                 <ArrowUpward />
                             </ToggleButton>
                         </ToggleButtonGroup>

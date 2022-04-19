@@ -85,6 +85,11 @@ export default function BookList() {
                         <div><b>Pia:</b> 10:30-10:40</div>                    
                     </div>
 
+        
+                    <hr/>
+
+                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>p. prof. Štroncerovú</a>.</p>       
+
                     <hr/>
 
                     <Splide hasTrack={false} options={
@@ -103,10 +108,7 @@ export default function BookList() {
                             {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})}
                         </SplideTrack>
                     </Splide>
-        
-                    <hr/>
 
-                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>prof. Štroncerovú</a>.</p>       
                 </div>
             </div>
 
