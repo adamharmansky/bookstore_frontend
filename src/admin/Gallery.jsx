@@ -31,6 +31,7 @@ export default function GalleryEditor() {
   return (<div className="GalleryEditor">
     <div className='BookPageContainer'>
       <h1> Galéria </h1>
+        <p> Kliknutím odstránite položku </p>
         <Splide hasTrack={false} options={
             {
                 type: 'loop',
