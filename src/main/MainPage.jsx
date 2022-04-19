@@ -97,17 +97,13 @@ export default function BookList() {
                             interval: 9000,
                             perPage: 1,
                             focus: 'center',
-
                     }}>
-                        <SplideSlide><img src="/recenzia_1.jpg" alt=""/></SplideSlide> 
-                        <SplideSlide><img src="/recenzia_2.jpg" alt=""/></SplideSlide> 
-                        <SplideSlide><img src="/recenzia_3.jpg" alt=""/></SplideSlide> 
-                        {/* {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})} */}
+                        {pictuteList.map((p) => { return <SplideSlide><img src={p.picture_path} alt=""/></SplideSlide>})}
                     </Splide>
         
                     <hr/>
 
-                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte <a href='mailto:stroncerova@gympos.sk'>prof. Štroncerovú</a>.</p>       
+                    <p> V prípade záujmu o vypožičanie knihy, kontaktujte, prosím, <a href='mailto:stroncerova@gympos.sk'>prof. Štroncerovú</a>.</p>       
                 </div>
             </div>
 
