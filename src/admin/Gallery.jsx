@@ -56,8 +56,9 @@ export default function GalleryEditor() {
             headers: {"Content-Type": "multipart/form-data"}
           }).catch((err)=> {
               console.log(err);
+          }).then((data)=>{
+            window.location.reload(true);
           });
-          window.location.reload(true);
         }
       }}/> </Button>
     </div>
