@@ -8,7 +8,7 @@ import {getCookie} from '../Utility';
 const config = require("../config");
 
 export default function GalleryEditor() {
-  const [pictuteList, setPictureList] = React.useState([]);
+  const [pictureList, setPictureList] = React.useState([]);
 
   function updatePictureList() {
     Axios.get(config.apiUrl + 'gallery').then((data) => {
@@ -24,7 +24,7 @@ export default function GalleryEditor() {
   function deleteItem(item) {
     if (window.confirm("chcete vymazať položku " + item + "?")) {
       Axios.delete(config.apiUrl + 'gallery/' + item);
-      setPictureList(pictuteList.filter(picture=>(picture.picture_id === item)));
+      setPictureList(pictureList.filter(picture=>(picture.picture_id !== item)));
     }
   }
 
@@ -45,7 +45,7 @@ export default function GalleryEditor() {
             }
         }>
             <SplideTrack>
-                {pictuteList.map((p) => <SplideSlide><img src={p.picture_path} onClick={()=>{deleteItem(p.picture_id)}} alt="bruuuuuuuuuuuuh" style={{cursor: "pointer"}}/> </SplideSlide>)}
+                {pictureList.map((p) => <SplideSlide><img src={p.picture_path} onClick={()=>{deleteItem(p.picture_id)}} alt={p.picture_id} style={{cursor: "pointer"}}/> </SplideSlide>)}
             </SplideTrack>
         </Splide>
       <Button component='label'> Nahrať Obrázok <input type='file' hidden onChange={(e)=>{
