@@ -43,7 +43,7 @@ export default function BookList() {
             setPageCount(data.data.pageCount);
         })
     }
-
+    
     React.useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         setSearch(params.has("q") ? params.get("q") : '');
@@ -52,9 +52,9 @@ export default function BookList() {
         setPage (params.has("page") ? params.get("page") : 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    React.useEffect(updateList, [orderBy, reverse, search]);
+    React.useLayoutEffect(updateList, [orderBy, reverse, search]);
 
     return (
         <div>
@@ -78,17 +78,13 @@ export default function BookList() {
                     aria-controls={menuOpen ? 'search_options' : undefined}
                     aria-haspopup="true"
                     aria-expanded={menuOpen ? 'true' : undefined}
-                    onClick={(e)=> {
-                        setAnchorEl(e.currentTarget)
-                    }}
+                    onClick={(e)=> { setAnchorEl(e.currentTarget) }}
                 > <MenuIcon /> </Button>
                 <Menu
                     id="search_options"
                     anchorEl={anchorEl}
                     open={menuOpen}
-                    onClose={()=> {
-                        setAnchorEl(null)
-                    }}
+                    onClose={()=> { setAnchorEl(null) }}
                     style={{"min-width": "100em"}}
                 >
                     <MenuItem>
@@ -99,9 +95,8 @@ export default function BookList() {
                                 id="ordering"
                                 value={orderBy}
                                 label="Zoradiť podľa"
-                                onChange={(e)=>{
-                                    setOrderBy(e.target.value);
-                                }}>
+                                onChange={(e)=>{ setOrderBy(e.target.value) }}
+                            >
                                 <MenuItem value={"year_pub"}> Rok Vydania </MenuItem>
                                 <MenuItem value={"isbn"}> ISBN </MenuItem>
                                 <MenuItem value={"title"}> Názov </MenuItem>
@@ -113,11 +108,11 @@ export default function BookList() {
                     </MenuItem>
                     <MenuItem>
                         <ToggleButtonGroup exclusive style={{margin: "auto"}} value={reverse} onChange={(e, x)=>{if (x!=null) {setReverse(x)}}}>
-                            <ToggleButton value={false}>
-                                <ArrowDownward />
-                            </ToggleButton>
                             <ToggleButton value={true}>
                                 <ArrowUpward />
+                            </ToggleButton>
+                            <ToggleButton value={false}>
+                                <ArrowDownward />
                             </ToggleButton>
                         </ToggleButtonGroup>
                     </MenuItem>
