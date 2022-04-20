@@ -41,7 +41,7 @@ export default function AuthorList() {
                     );
                 })}
                 <p className='NotFound'> {authorList.length === 0 ? "Neboli nájdené žiadne výsledky" : ""} </p>
-                {pageCount > 1 ? <div className='PageNumbers'> { pageNumbers(current_page, pageCount, create_url) } </div> : []}
+                {pageCount > 1 ? <div className='PageNumbers'> { pageNumbers(current_page, pageCount, (x) => {window.location.assign(create_url(x))}) } </div> : []}
             </div>
         </div>
     );

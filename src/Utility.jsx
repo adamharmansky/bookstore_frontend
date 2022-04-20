@@ -42,14 +42,14 @@ export function bookList(books) {
     })
 }
 
-export function pageNumbers(current_page, page_count, page_link) {
+export function pageNumbers(current_page, page_count, onclick) {
     let numbers = [];
     current_page = parseInt(current_page);
-    if (current_page > 0) numbers.push(<a className='PageNumber' href={page_link(current_page-1)}>{"<<"}</a>);
+    if (current_page > 0) numbers.push(<div className='PageNumber' onClick={()=>{onclick(0)}}>{"<<"}</div>);
     for (let i = 0; i < page_count; i++) {
-        numbers.push(i === current_page ? <span className='CurrentPageNumber'>{i+1}</span> : <a className='PageNumber' href={page_link(i)}>{i+1}</a>);
+        numbers.push(i === current_page ? <div className='CurrentPageNumber'>{i+1}</div> : <div className='PageNumber' onClick={()=>{onclick(i)}}>{i+1}</div>);
     }
-    if (current_page < page_count-1) numbers.push(<a className='PageNumber' href={page_link(current_page+1)}>{">>"}</a>);
+    if (current_page < page_count-1) numbers.push(<div className='PageNumber' onClick={()=>{onclick(page_count-1)}}>{">>"}</div>);
     return numbers;
 }
 

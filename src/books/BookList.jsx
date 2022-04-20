@@ -25,36 +25,20 @@ export default function BookList() {
     var [page, setPage] = React.useState(0);
     
     var menuOpen = Boolean(anchorEl);
-    
-    function create_url(page) {
+        
+    function updateList() {
         let params = [];
-        if (page) params.push('page=' + page);
+        params.push('page=' + page);
         params.push('order_by=' + orderBy);
         params.push('reverse=' + reverse);
         if (search) params.push('q=' + search);
-        return "/list/?" + params.join('&');
-    }
-
-    function updateList() {
-        const url = create_url(page);
-        window.history.pushState("", "", url)
-        Axios.get(config.apiUrl + 'list' + window.location.search).then((data) => {
+        Axios.get(config.apiUrl + 'list/?' + params.join('&')).then((data) => {
             setBookList(data.data.books);
             setPageCount(data.data.pageCount);
         })
     }
-    
-    React.useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        setSearch(params.has("q") ? params.get("q") : '');
-        setReverse(params.has("reverse") ? Boolean(params.get("reverse")) : false);
-        setOrderBy(params.has("order_by") ? params.get("order_by") : "year_pub");
-        setPage (params.has("page") ? params.get("page") : 0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    React.useLayoutEffect(updateList, [orderBy, reverse, search]);
+        
+    React.useEffect(updateList, [orderBy, reverse, search, page]);
 
     return (
         <div>
@@ -121,7 +105,7 @@ export default function BookList() {
             <div className='PageList'>
                 {listBooks(bookList)}
                 <p> {bookList.length === 0 ? "Neboli nájdené žiadne knihy" : ""} </p>
-                {pageCount > 1 ? <div className='PageNumbers'> { pageNumbers(page, pageCount, create_url) } </div> : []}
+                <div className='PageNumbers'> { pageNumbers(page, pageCount, (x) => {setPage(x); window.scroll(0, 0)}) } </div>
             </div>
         </div>
     );

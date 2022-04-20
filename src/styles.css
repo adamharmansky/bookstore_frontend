@@ -143,6 +143,7 @@
     margin: 0 0.1em 0 0.1em;
     background-color: #c7c7c78b;
     border-radius: 5px;
+    cursor: not-allowed;
 }
 
 .PageNumber {
@@ -152,6 +153,7 @@
     margin: 0 0.1em 0 0.1em;
     background-color: #c2c2c250;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .AddBookForm {
