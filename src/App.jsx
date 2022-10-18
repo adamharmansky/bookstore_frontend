@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import './App.css'
 import './styles.css'
 import BookList from './books/BookList'
@@ -27,21 +27,19 @@ function App() {
                 {/* <a className='NavBarButton' href='/add'> Pridať knihu </a> */}
             </div>
             <main>
-                <Router>
-                    <Routes>
-                        <Route path='/' element={<MainPage />} />
-                        <Route path='/about' element={<AboutPage />} />
-                        <Route path='/list' element={<BookList />} />
-                        <Route path='/book/*' element={<BookPage />} />
-                        <Route path='/authors' element={<AuthorList />} />
-                        <Route path='/author/*' element={<AuthorPage />} />
-                        <Route path='/subject/*' element={<SubjectPage />} />
-                        <Route path='/add' element={<AddBook />} />
-                        <Route path='/admin' element={<Admin />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/gallery' element={<GalleryEditor />} />
-                    </Routes>
-                </Router>
+                <Routes>
+                    <Route path='/' element={<MainPage />} />
+                    <Route path='/about' element={<AboutPage />} />
+                    <Route path='/list' element={<BookList />} />
+                    <Route path='/book/*' element={<BookPage />} />
+                    <Route path='/authors' element={<AuthorList />} />
+                    <Route path='/author/*' element={<AuthorPage />} />
+                    <Route path='/subject/*' element={<SubjectPage />} />
+                    <Route path='/add' element={<AddBook />} />
+                    <Route path='/admin' element={<Admin />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/gallery' element={<GalleryEditor />} />
+                </Routes>
             </main>
             <div className='InfoLinksContainer'>
                 <div className='InfoLinksColumn'>
