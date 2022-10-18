@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes, Link } from 'react-router-dom'
 import './App.css'
 import './styles.css'
 import BookList from './books/BookList'
@@ -19,11 +19,11 @@ function App() {
     return (
         <div className='App'>
             <div className='NavBar'>
-                <a className='NavBarButton' href='/'> Domov </a>
-                <a className='NavBarButton' href='/about'> O nás </a>
-                <a className='NavBarButton' href='/list'> Zoznam kníh </a>
-                <a className='NavBarButton' href='/authors'> Zoznam autorov </a>
-                {getCookie('session_key') ? <a className='NavBarButton' href='/admin'> Prihlásený ako {getCookie('username')} </a> : []}
+                <Link className='NavBarButton' end to='/'> Domov </Link>
+                <Link className='NavBarButton' end to='/about'> O nás </Link>
+                <Link className='NavBarButton' end to='/list'> Zoznam kníh </Link>
+                <Link className='NavBarButton' end to='/authors'> Zoznam autorov </Link>
+                {getCookie('session_key') ? <Link className='NavBarButton' to='/admin'> Prihlásený ako {getCookie('username')} </Link> : []}
                 {/* <a className='NavBarButton' href='/add'> Pridať knihu </a> */}
             </div>
             <main>
